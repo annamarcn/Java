@@ -15,7 +15,11 @@ public class ArrayListPractice {
 
   //  Return the item at the given index. Experiment with what happens if you ask for an invalid index (e.g. negative index or an index >= the length of the list)!
   public Integer get(ArrayList<Integer> list, int index) {
-    return null;
+    if (index >= 0) {
+      return list.get(index);
+    } else {
+      return -1;
+    }
   }
 
   //  Remove the item by a given index and then return the item.

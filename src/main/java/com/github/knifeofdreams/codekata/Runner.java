@@ -1,17 +1,5 @@
 package com.github.knifeofdreams.codekata;
- /*
-public class Runner {
-  public static void main(String[] args) {
 
-    var arrayList = new ArrayListPractice();
-
-    boolean result = arrayList.testMethod();
-    //var result2 = arrayList.addItem();
-    System.out.println(result);
-
-  }
-}
-*/
 import java.util.ArrayList;
     import java.util.List;
 
@@ -23,10 +11,18 @@ public class Runner {
     List<Integer> integers = List.of(4, 2, 3, 5, 1);
     ArrayList<Integer> integerList = new ArrayList<>(integers);
 
-    // Please play around with the items and indexes. These are here just to get you started and make the code compile.
-    // I'm encouraging you to change them and even use invalid values to see what happens.
-    System.out.println(practice.add(integerList, 12));
-    /*System.out.println(practice.get(integerList, 0));
+    //
+    System.out.println(practice.add(integerList, -12));
+
+    //get item at index n, unless it's out of bounds
+    int item = practice.get(integerList, -3);
+    if (item >= 0) {
+      System.out.println(item);
+    }else{
+      System.out.println("The index is out of bounds.");
+    }
+
+    /*
     System.out.println(practice.remove(integerList, 0));
     System.out.println(practice.contains(integerList, 0));
     System.out.println(practice.indexOf(integerList, 0));
