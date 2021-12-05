@@ -49,17 +49,36 @@ public class ArrayListPractice {
   //  Return the index of the given item or -1 if it's not present in the arraylist. You can try the built-in method and also writing your own!
   public int indexOf(ArrayList<Integer> list, Integer item) {
 
+    if(list.contains(item)){
+      return list.indexOf(item);
+    }else{
+      return -1;
+    }
+
+
+    /* Alternative method:
     for(int i = 0; i < list.size(); i++){
       if(list.get(i) == item){
         return i;
       }
     }
     return -1;
+     */
   }
 
   //  Return the size of the arraylist. You can try the built-in method and also writing your own!
   public int size(ArrayList<Integer> list) {
-    return 0;
+
+    int count = 0;
+    for(Integer i : list){
+      count++;
+    }
+    return count;
+
+     /*
+     Alternative method:
+     return list.size();
+     */
   }
 
   //  Double the value of each element in the arraylist and return the list. Implement your own solution.

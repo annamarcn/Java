@@ -39,15 +39,24 @@ public class Runner {
     }
 
     //return index of item if it's in the list, otherwise return -1
-    int number = 4;
+    int number = 0;
     if(practice.indexOf(integerList, number) == -1){
       System.out.println("There's no item with number: " + number);
     }else{
       System.out.println("The item with number : " + number + " is at index: " + practice.indexOf(integerList, number));
     }
 
+    // return size of list
+
+    System.out.println("The size of the list is: " + practice.size(integerList));
+
+    //double check if correct:
+
+    for(int i = 0; i < integerList.size(); i++){
+      System.out.println(integerList.get(i));
+    }
+
     /*
-    System.out.println(practice.size(integerList));
     System.out.println(practice.doubleValues(integerList));
     System.out.println(practice.evenNumbers(integerList));
     System.out.println(practice.shuffle(integerList));
