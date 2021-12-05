@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ArrayListPractice {
 
@@ -106,7 +107,8 @@ public class ArrayListPractice {
 
   // Shuffle the list. Use the built-in ArrayList method.
   public ArrayList<Integer> shuffle(ArrayList<Integer> list) {
-    return null;
+    Collections.shuffle(list);
+    return list;
   }
 
   // Remove duplicate items from the arraylist. Implement your own solution.
