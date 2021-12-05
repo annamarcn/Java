@@ -50,14 +50,17 @@ public class Runner {
 
     System.out.println("The size of the list is: " + practice.size(integerList));
 
-    //double check if correct:
+    // double check if correct:
 
+    System.out.print("Current list = ");
     for(int i = 0; i < integerList.size(); i++){
-      System.out.println(integerList.get(i));
+      System.out.print(integerList.get(i) + " ");
     }
+    System.out.println();
+
+    System.out.println("New list with doubled values: " + practice.doubleValues(integerList));
 
     /*
-    System.out.println(practice.doubleValues(integerList));
     System.out.println(practice.evenNumbers(integerList));
     System.out.println(practice.shuffle(integerList));
     System.out.println(practice.removeDuplicates(integerList));

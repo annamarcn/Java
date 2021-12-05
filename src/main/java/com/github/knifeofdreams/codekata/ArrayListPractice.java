@@ -83,7 +83,13 @@ public class ArrayListPractice {
 
   //  Double the value of each element in the arraylist and return the list. Implement your own solution.
   public ArrayList<Integer> doubleValues(ArrayList<Integer> list) {
-    return null;
+
+    for(int i = 0; i < list.size(); i++){
+      int savedElement = list.get(i);
+      list.set(i, savedElement*2);
+    }
+
+    return list;
   }
 
   //  Select even elements from the arraylist and return the list. Implement your own solution.
