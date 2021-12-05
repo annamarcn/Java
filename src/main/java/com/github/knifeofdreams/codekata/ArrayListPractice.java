@@ -6,56 +6,56 @@ import java.util.ArrayList;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class ArrayListPractice {
+public class ArrayListPractice
+{
 
   //  Add an item to the arraylist and return the list. Use the built-in ArrayList method.
-  public ArrayList<Integer> add(ArrayList<Integer> list, Integer item) {
+  public ArrayList<Integer> add(ArrayList<Integer> list, Integer item)
+  {
     list.add(item);
     return list;
   }
 
   //  Return the item at the given index.  Use the built-in ArrayList method. Experiment with what happens if you ask for an invalid index (e.g. negative index or an index >= the length of the list)!
-  public Integer get(ArrayList<Integer> list, int index) {
-    if (index >= 0) {
+  public Integer get(ArrayList<Integer> list, int index)
+  {
+    if (index >= 0)
+    {
       return list.get(index);
-    } else {
-      return -1;
     }
+    return -1;
   }
 
   //  Remove the item by a given index and then return the item. Use the built-in ArrayList method.
   //  Experiment with the list size before and after the removal.
   //  Experiment with what happens if you try to remove an item at an invalid index (e.g. negative index or an index >= the length of the list)!
-  public Integer remove(ArrayList<Integer> list, int index) {
-
-    if(index < 0 || index >= list.size()){
-      return -1;
-    }else{
+  public Integer remove(ArrayList<Integer> list, int index)
+  {
+    if(index >=0 && index < list.size())
+    {
       int savedItem = list.get(index);
       list.remove(index);
       return savedItem;
     }
+      return -1;
   }
 
   //  Return true if the arraylist contains the item and false is it doesn't. You can try the
   // built-in method and also writing your own!
-  public boolean contains(ArrayList<Integer> list, Integer item) {
-    if (list.contains(item)) {
-      return true;
-    } else {
-      return false;
-    }
-}
+  public boolean contains(ArrayList<Integer> list, Integer item)
+  {
+    return list.contains(item);
+  }
 
   //  Return the index of the given item or -1 if it's not present in the arraylist. You can try the built-in method and also writing your own!
-  public int indexOf(ArrayList<Integer> list, Integer item) {
+  public int indexOf(ArrayList<Integer> list, Integer item)
+  {
 
     if(list.contains(item)){
       return list.indexOf(item);
     }else{
       return -1;
     }
-
 
     /* Alternative method:
     for(int i = 0; i < list.size(); i++){
@@ -68,10 +68,11 @@ public class ArrayListPractice {
   }
 
   //  Return the size of the arraylist. You can try the built-in method and also writing your own!
-  public int size(ArrayList<Integer> list) {
-
+  public int size(ArrayList<Integer> list)
+  {
     int count = 0;
-    for(Integer i : list){
+    for(Integer i : list)
+    {
       count++;
     }
     return count;
@@ -83,8 +84,8 @@ public class ArrayListPractice {
   }
 
   //  Double the value of each element in the arraylist and return the list. Implement your own solution.
-  public ArrayList<Integer> doubleValues(ArrayList<Integer> list) {
-
+  public ArrayList<Integer> doubleValues(ArrayList<Integer> list)
+  {
     for(int i = 0; i < list.size(); i++){
       int savedElement = list.get(i);
       list.set(i, savedElement*2);
@@ -94,7 +95,8 @@ public class ArrayListPractice {
   }
 
   //  Select even elements from the arraylist and return the list. Implement your own solution.
-  public ArrayList<Integer> evenNumbers(ArrayList<Integer> list) {
+  public ArrayList<Integer> evenNumbers(ArrayList<Integer> list)
+  {
     ArrayList<Integer> newList = new ArrayList<>();
 
     for(int i = 0; i < list.size(); i++){
@@ -106,17 +108,21 @@ public class ArrayListPractice {
   }
 
   // Shuffle the list. Use the built-in ArrayList method.
-  public ArrayList<Integer> shuffle(ArrayList<Integer> list) {
+  public ArrayList<Integer> shuffle(ArrayList<Integer> list)
+  {
     Collections.shuffle(list);
     return list;
   }
 
   // Remove duplicate items from the arraylist. Implement your own solution.
-  public ArrayList<Integer> removeDuplicates(ArrayList<Integer> list) {
-    
-    for(int i = 0; i < list.size(); i++){
-      for(int j = i+1; j < list.size()-1; j++){
-         if(list.get(i) == list.get(j)){
+  public ArrayList<Integer> removeDuplicates(ArrayList<Integer> list)
+  {
+    for(int i = 0; i < list.size(); i++)
+    {
+      for(int j = i+1; j < list.size()-1; j++)
+      {
+         if(list.get(i) == list.get(j))
+         {
            list.remove(j);
          }
       }
@@ -126,29 +132,44 @@ public class ArrayListPractice {
 
   // Find the length of the longest strictly increasing sequence in the list. Example: in [2, 3, 5, 4] it will be 3, in [5, 4, 3] it will be 1.
   // Implement your own solution.
-  public int findLongestIncreasingSequence(ArrayList<Integer> list) {
-
+  public int findLongestIncreasingSequence(ArrayList<Integer> list)
+  {
     int count = 0;
     int maxIncreasingSequence = 0;
 
-    for(int i = 0; i < list.size(); i++){
-      if(i+1 < list.size() && list.get(i)<list.get(i+1)){
+    for(int i = 0; i < list.size(); i++)
+    {
+      if(i+1 < list.size() && list.get(i)<list.get(i+1))
+      {
         count++;
-        maxIncreasingSequence = (count >= maxIncreasingSequence) ? count : maxIncreasingSequence;
-
-      }else{
+        maxIncreasingSequence = Math.max(count, maxIncreasingSequence); // (count >= maxIncreasingSequence) ? count : maxIncreasingSequence;
+      }
+      else
+      {
         count = 0;
       }
     }
-
     return maxIncreasingSequence+1;
   }
 
   // Don't use a built-in method here, instead try to come up with your own implementation!
   // Think about as a human what steps you would follow to sort the array [4, 2, 3, 5, 1]. Try to translate these steps into code.
   // You can construct more arraylists, variables, use for loops, etc. inside the method.
-  public ArrayList<Integer> sort(ArrayList<Integer> list) {
-    return null;
+  public ArrayList<Integer> sort(ArrayList<Integer> list)
+  {
+    int temp = 0;
+    for(int i = 0; i < list.size(); i++)
+    {
+      for(int j = i+1; j < list.size(); j++)
+      {
+        if(list.get(i) > list.get(j))
+        {
+          temp = list.get(i);
+          list.set(i, list.get(j));
+          list.set(j, temp);
+        }
+      }
+    }
+    return list;
   }
-
 }
