@@ -30,8 +30,15 @@ public class Runner {
       System.out.println("The index is out of bounds");
     }
 
+   //check if list contains item at index n
+    int containsItem = 0;
+    if(practice.contains(integerList, containsItem)){
+      System.out.println("The list contains the item: " + containsItem);
+    }else{
+      System.out.println("There is no item like that in the list");
+    }
+
     /*
-    System.out.println(practice.contains(integerList, 0));
     System.out.println(practice.indexOf(integerList, 0));
     System.out.println(practice.size(integerList));
     System.out.println(practice.doubleValues(integerList));

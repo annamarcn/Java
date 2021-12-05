@@ -34,13 +34,14 @@ public class ArrayListPractice {
       list.remove(index);
       return savedItem;
     }
-
   }
 
 
-
   //  Return true if the arraylist contains the item and false is it doesn't. You can try the built-in method and also writing your own!
-  public boolean contains(ArrayList<Integer> list, Integer item) {
+  public boolean contains(ArrayList<Integer> list, Integer item) { //why does it say "Integer item" and not "int item"?
+    if(list.contains(item)){
+      return true;
+    }
     return false;
   }
 
