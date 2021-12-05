@@ -38,8 +38,15 @@ public class Runner {
       System.out.println("There is no item like that in the list");
     }
 
+    //return index of item if it's in the list, otherwise return -1
+    int number = 4;
+    if(practice.indexOf(integerList, number) == -1){
+      System.out.println("There's no item with number: " + number);
+    }else{
+      System.out.println("The item with number : " + number + " is at index: " + practice.indexOf(integerList, number));
+    }
+
     /*
-    System.out.println(practice.indexOf(integerList, 0));
     System.out.println(practice.size(integerList));
     System.out.println(practice.doubleValues(integerList));
     System.out.println(practice.evenNumbers(integerList));
