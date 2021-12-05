@@ -44,26 +44,36 @@ public class ArrayListPractice
   // built-in method and also writing your own!
   public boolean contains(ArrayList<Integer> list, Integer item)
   {
+    for(int i = 0; i < list.size(); i++)
+    {
+      if(list.get(i).equals(item))
+      {
+        return true;
+      }
+    }
+    return false;
+
+    /*Alternative method:
     return list.contains(item);
+     */
   }
 
   //  Return the index of the given item or -1 if it's not present in the arraylist. You can try the built-in method and also writing your own!
   public int indexOf(ArrayList<Integer> list, Integer item)
   {
-
+    for(int i = 0; i < list.size(); i++){
+      if(list.get(i).equals(item)){
+        return i;
+      }
+    }
+    return -1;
+    /* Alternative method:
     if(list.contains(item)){
       return list.indexOf(item);
     }else{
       return -1;
     }
 
-    /* Alternative method:
-    for(int i = 0; i < list.size(); i++){
-      if(list.get(i) == item){
-        return i;
-      }
-    }
-    return -1;
      */
   }
 
@@ -121,7 +131,7 @@ public class ArrayListPractice
     {
       for(int j = i+1; j < list.size()-1; j++)
       {
-         if(list.get(i) == list.get(j))
+         if(list.get(i).equals(list.get(j)))
          {
            list.remove(j);
          }

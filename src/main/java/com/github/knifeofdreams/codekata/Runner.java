@@ -37,7 +37,7 @@ public class Runner
     }
 
    //check if list contains item at index n
-    int containsItem = 0;
+    int containsItem = 4;
     if(practice.contains(integerList, containsItem))
     {
       System.out.println("The list contains the item: " + containsItem);
@@ -48,7 +48,7 @@ public class Runner
     }
 
     //return index of item if it's in the list, otherwise return -1
-    int number = 0;
+    int number = 5;
     if(practice.indexOf(integerList, number) == -1)
     {
       System.out.println("There's no item with number: " + number);
