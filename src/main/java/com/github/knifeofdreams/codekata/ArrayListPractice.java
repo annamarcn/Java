@@ -55,6 +55,8 @@ public class ArrayListPractice
 
     /*Alternative method:
     return list.contains(item);
+
+
      */
   }
 

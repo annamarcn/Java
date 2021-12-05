@@ -55,7 +55,11 @@ public class Runner
     }
     else
     {
-      System.out.println("The item with number : " + number + " is at index: " + practice.indexOf(integerList, number));
+      System.out.println(
+          "The item with number : "
+              + number
+              + " is at index: "
+              + practice.indexOf(integerList, number));
     }
 
     // return size of list
