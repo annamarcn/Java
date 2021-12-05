@@ -94,7 +94,14 @@ public class ArrayListPractice {
 
   //  Select even elements from the arraylist and return the list. Implement your own solution.
   public ArrayList<Integer> evenNumbers(ArrayList<Integer> list) {
-    return null;
+    ArrayList<Integer> newList = new ArrayList<>();
+
+    for(int i = 0; i < list.size(); i++){
+      if((list.get(i) % 2) == 0){
+        newList.add(list.get(i));
+      }
+    }
+    return newList;
   }
 
   // Shuffle the list. Use the built-in ArrayList method.

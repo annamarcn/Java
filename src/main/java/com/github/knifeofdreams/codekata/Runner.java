@@ -58,10 +58,11 @@ public class Runner {
     }
     System.out.println();
 
-    System.out.println("New list with doubled values: " + practice.doubleValues(integerList));
+    //System.out.println("New list with doubled values: " + practice.doubleValues(integerList));
 
-    /*
-    System.out.println(practice.evenNumbers(integerList));
+    System.out.println("New list with only even values: " + practice.evenNumbers(integerList));
+
+     /*
     System.out.println(practice.shuffle(integerList));
     System.out.println(practice.removeDuplicates(integerList));
     System.out.println(practice.findLongestIncreasingSequence(integerList));
