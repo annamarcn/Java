@@ -22,8 +22,15 @@ public class Runner {
       System.out.println("The index is out of bounds.");
     }
 
+    //remove item at index n, inform if it's out of bounds
+    int removedItem = practice.remove(integerList, -1);
+    if (removedItem != -1) {
+      System.out.println("The item you removed is = " + removedItem);
+    }else{
+      System.out.println("The index is out of bounds");
+    }
+
     /*
-    System.out.println(practice.remove(integerList, 0));
     System.out.println(practice.contains(integerList, 0));
     System.out.println(practice.indexOf(integerList, 0));
     System.out.println(practice.size(integerList));
