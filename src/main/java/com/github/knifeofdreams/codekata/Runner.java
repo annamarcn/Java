@@ -8,7 +8,7 @@ public class Runner {
   public static void main(String[] args) {
     var practice = new ArrayListPractice();
 
-    List<Integer> integers = List.of(4, 2, 3, 5, 1);
+    List<Integer> integers = List.of(4, 2, 3, 3, 5, 3, 4, 1);
     ArrayList<Integer> integerList = new ArrayList<>(integers);
 
     //
@@ -62,10 +62,11 @@ public class Runner {
 
     //System.out.println("New list with only even values: " + practice.evenNumbers(integerList));
 
-    System.out.println(practice.shuffle(integerList));
+    //System.out.println(practice.shuffle(integerList));
 
-     /*
-    System.out.println(practice.removeDuplicates(integerList));
+    System.out.println("Same list, but without duplicates = " + practice.removeDuplicates(integerList));
+
+    /*
     System.out.println(practice.findLongestIncreasingSequence(integerList));
     System.out.println(practice.sort(integerList));
      */

@@ -112,8 +112,16 @@ public class ArrayListPractice {
   }
 
   // Remove duplicate items from the arraylist. Implement your own solution.
-  public ArrayList<String> removeDuplicates(ArrayList<Integer> list) {
-    return null;
+  public ArrayList<Integer> removeDuplicates(ArrayList<Integer> list) {
+    
+    for(int i = 0; i < list.size(); i++){
+      for(int j = i+1; j < list.size()-1; j++){
+         if(list.get(i) == list.get(j)){
+           list.remove(j);
+         }
+      }
+    }
+    return list;
   }
 
   // Find the length of the longest strictly increasing sequence in the list. Example: in [2, 3, 5, 4] it will be 3, in [5, 4, 3] it will be 1.
