@@ -127,7 +127,21 @@ public class ArrayListPractice {
   // Find the length of the longest strictly increasing sequence in the list. Example: in [2, 3, 5, 4] it will be 3, in [5, 4, 3] it will be 1.
   // Implement your own solution.
   public int findLongestIncreasingSequence(ArrayList<Integer> list) {
-    return 0;
+
+    int count = 0;
+    int maxIncreasingSequence = 0;
+
+    for(int i = 0; i < list.size(); i++){
+      if(i+1 < list.size() && list.get(i)<list.get(i+1)){
+        count++;
+        maxIncreasingSequence = (count >= maxIncreasingSequence) ? count : maxIncreasingSequence;
+
+      }else{
+        count = 0;
+      }
+    }
+
+    return maxIncreasingSequence+1;
   }
 
   // Don't use a built-in method here, instead try to come up with your own implementation!
