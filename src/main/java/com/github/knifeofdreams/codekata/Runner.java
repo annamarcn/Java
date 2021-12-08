@@ -13,16 +13,16 @@ public class Runner {
     System.out.println(practice.add(integerList, -12));
 
     // get item at index n, unless it's out of bounds
-    practice.get(integerList, -2);
+    System.out.println("The item at the index is: " + practice.get(integerList, 1));
 
     // remove item at index n, inform if it's out of bounds
     System.out.println("The index you removed is: " + practice.remove(integerList, 2));
 
-    //check if list contains item at index n
-    practice.contains(integerList, -2);
+    // check if list contains item at index n
+    System.out.println("Check if list contains item at the index: " + practice.contains(integerList, -2));
 
     // return index of item if it's in the list, otherwise return -1
-    practice.indexOf(integerList, 24352534);
+    System.out.println("Index of the item if it's in the list (otherwise -1): " + practice.indexOf(integerList, 24352534));
 
     // return size of list
 

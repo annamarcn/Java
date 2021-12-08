@@ -1,9 +1,5 @@
 package com.github.knifeofdreams.codekata;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-
-
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -67,7 +63,7 @@ public class ArrayListPractice
   //  Return the index of the given item or -1 if it's not present in the arraylist. You can try the built-in method and also writing your own!
   public int indexOf(ArrayList<Integer> list, Integer item)
   {
-    if(list.indexOf(item) == -1){
+    if(!list.contains(item)){
       System.out.println("The item doesn't exist in the list.");
     }
     return list.indexOf(item);
@@ -77,7 +73,7 @@ public class ArrayListPractice
   public int size(ArrayList<Integer> list)
   {
     int count = 0;
-    for(Integer i : list)
+    for(int i = 0; i < list.size(); i++)
     {
       count++;
     }
