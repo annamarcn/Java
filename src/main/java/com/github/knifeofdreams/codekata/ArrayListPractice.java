@@ -1,5 +1,6 @@
 package com.github.knifeofdreams.codekata;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
@@ -18,27 +19,30 @@ public class ArrayListPractice
 
   //  Return the item at the given index.  Use the built-in ArrayList method. Experiment with what happens if you ask for an invalid index (e.g. negative index or an index >= the length of the list)!
   public Integer get(ArrayList<Integer> list, int index)
-  {
-    if (index >= 0)
     {
-      return list.get(index);
-    }
-    return -1;
+      try
+      {
+        return list.get(index);
+      }
+      catch (IndexOutOfBoundsException e){
+      System.out.println("The index is out of bounds.");
+      return null;
+      }
   }
 
   //  Remove the item by a given index and then return the item. Use the built-in ArrayList method.
   //  Experiment with the list size before and after the removal.
-  //  Experiment with what happens if you try to remove an item at an invalid index (e.g. negative index or an index >= the length of the list)!
-  public Integer remove(ArrayList<Integer> list, int index)
-  {
-    if(index >=0 && index < list.size())
+  //  Experiment with what happens if you try to remove an item at an invalid index (e.g. negative
+  // index or an index >= the length of the list)!
+  public Integer remove(ArrayList<Integer> list, int index) {
+    try
     {
-      int savedItem = list.get(index);
-      list.remove(index);
-      return savedItem;
+      return list.remove(index);
+    } catch (IndexOutOfBoundsException e) {
+      System.out.println("The index is out of bounds");
+      return null;
     }
-      return -1;
-  }
+    }
 
   //  Return true if the arraylist contains the item and false is it doesn't. You can try the
   // built-in method and also writing your own!
@@ -48,35 +52,25 @@ public class ArrayListPractice
     {
       if(list.get(i).equals(item))
       {
+        System.out.println("The list contains the item: " + item);
         return true;
       }
     }
+    System.out.println("The list doesn't contain the item: " + item);
     return false;
 
     /*Alternative method:
     return list.contains(item);
-
-
      */
   }
 
   //  Return the index of the given item or -1 if it's not present in the arraylist. You can try the built-in method and also writing your own!
   public int indexOf(ArrayList<Integer> list, Integer item)
   {
-    for(int i = 0; i < list.size(); i++){
-      if(list.get(i).equals(item)){
-        return i;
-      }
+    if(list.indexOf(item) == -1){
+      System.out.println("The item doesn't exist in the list.");
     }
-    return -1;
-    /* Alternative method:
-    if(list.contains(item)){
-      return list.indexOf(item);
-    }else{
-      return -1;
-    }
-
-     */
+    return list.indexOf(item);
   }
 
   //  Return the size of the arraylist. You can try the built-in method and also writing your own!
@@ -98,12 +92,13 @@ public class ArrayListPractice
   //  Double the value of each element in the arraylist and return the list. Implement your own solution.
   public ArrayList<Integer> doubleValues(ArrayList<Integer> list)
   {
+    ArrayList<Integer> doubleValues = new ArrayList<>();
+
     for(int i = 0; i < list.size(); i++){
-      int savedElement = list.get(i);
-      list.set(i, savedElement*2);
+      doubleValues.add(i, list.get(i)*2);
     }
 
-    return list;
+    return doubleValues;
   }
 
   //  Select even elements from the arraylist and return the list. Implement your own solution.
@@ -129,17 +124,20 @@ public class ArrayListPractice
   // Remove duplicate items from the arraylist. Implement your own solution.
   public ArrayList<Integer> removeDuplicates(ArrayList<Integer> list)
   {
+    ArrayList<Integer> newList = list;
+    System.out.println(newList);
+
     for(int i = 0; i < list.size(); i++)
     {
       for(int j = i+1; j < list.size()-1; j++)
       {
          if(list.get(i).equals(list.get(j)))
          {
-           list.remove(j);
+           newList.remove(j);
          }
       }
     }
-    return list;
+    return newList;
   }
 
   // Find the length of the longest strictly increasing sequence in the list. Example: in [2, 3, 5, 4] it will be 3, in [5, 4, 3] it will be 1.
@@ -169,7 +167,7 @@ public class ArrayListPractice
   // You can construct more arraylists, variables, use for loops, etc. inside the method.
   public ArrayList<Integer> sort(ArrayList<Integer> list)
   {
-    int temp = 0;
+    int temp;
     for(int i = 0; i < list.size(); i++)
     {
       for(int j = i+1; j < list.size(); j++)
