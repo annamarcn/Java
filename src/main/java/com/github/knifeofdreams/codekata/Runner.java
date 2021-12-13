@@ -19,28 +19,31 @@ public class Runner {
     System.out.println("The index you removed is: " + practice.remove(integerList, 2));
 
     // check if list contains item at index n
-    System.out.println("Check if list contains item at the index: " + practice.contains(integerList, -2));
+    System.out.println(
+        "Check if list contains item at the index: " + practice.contains(integerList, -2));
 
     // return index of item if it's in the list, otherwise return -1
-    System.out.println("Index of the item if it's in the list (otherwise -1): " + practice.indexOf(integerList, 24352534));
+    System.out.println(
+        "Index of the item if it's in the list (otherwise -1): "
+            + practice.indexOf(integerList, 24352534));
 
     // return size of list
 
     System.out.println("The size of the list is: " + practice.size(integerList));
 
+    // System.out.println("New list with doubled values: " + practice.doubleValues(integerList));
 
-    //System.out.println("New list with doubled values: " + practice.doubleValues(integerList));
+    // System.out.println("New list with only even values: " + practice.evenNumbers(integerList));
 
-    //System.out.println("New list with only even values: " + practice.evenNumbers(integerList));
+    // System.out.println(practice.shuffle(integerList));
 
-    //System.out.println(practice.shuffle(integerList));
+    // System.out.println("Same list, but without duplicates = " +
+    // practice.removeDuplicates(integerList));
 
-    //System.out.println("Same list, but without duplicates = " + practice.removeDuplicates(integerList));
+    // System.out.println("Longest consecutive increasing sequence is of size = " +
+    // practice.findLongestIncreasingSequence(integerList));
 
-    //System.out.println("Longest consecutive increasing sequence is of size = " + practice.findLongestIncreasingSequence(integerList));
-
-    //System.out.println("Sorted list = " + practice.sort(integerList));
-
-      }
+    // System.out.println("Sorted list = " + practice.sort(integerList));
 
   }
+}

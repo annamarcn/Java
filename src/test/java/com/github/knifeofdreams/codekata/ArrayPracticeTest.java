@@ -7,10 +7,11 @@ import org.junit.jupiter.api.Test;
 public class ArrayPracticeTest {
 
   @Test
-  public void testMethod() {
+  public void get() {
     var practice = new ArrayPractice();
-    var result = practice.testMethod();
+    int[] list = new int[0];
+    var result = practice.get(list, 0);
 
-    assertEquals(1, result);
+    assertEquals(0, result);
   }
 }

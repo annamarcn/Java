@@ -120,18 +120,12 @@ public class ArrayListPractice
   // Remove duplicate items from the arraylist. Implement your own solution.
   public ArrayList<Integer> removeDuplicates(ArrayList<Integer> list)
   {
-    ArrayList<Integer> newList = list;
-    System.out.println(newList);
+    ArrayList newList = new ArrayList<Integer>();
 
-    for(int i = 0; i < list.size(); i++)
+    for(Integer item : list)
     {
-      for(int j = i+1; j < list.size()-1; j++)
-      {
-         if(list.get(i).equals(list.get(j)))
-         {
-           newList.remove(j);
-         }
-      }
+      if (!newList.contains(item))
+        newList.add(item);
     }
     return newList;
   }
@@ -140,6 +134,10 @@ public class ArrayListPractice
   // Implement your own solution.
   public int findLongestIncreasingSequence(ArrayList<Integer> list)
   {
+    if (list.size() == 0) {
+      return 0;
+    }
+
     int count = 0;
     int maxIncreasingSequence = 0;
 
