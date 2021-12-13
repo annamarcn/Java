@@ -40,4 +40,20 @@ class ArrayListPracticeTest {
     // Then
     assertFalse(result);
   }
+
+  @Test
+  public void removeDuplicatesRemovesDuplicatesFromUnsortedList() {
+    var list = new ArrayList<>(List.of(1, 3, 2, 3, 1, 1, 3));
+
+    var expected = List.of(1, 3, 2);
+
+    assertEquals(expected, practice.removeDuplicates(list));
+  }
+
+  @Test
+  public void findLongestIncreasingSequenceReturnsZeroForEmptyList() {
+    var emptyList = new ArrayList<Integer>(List.of());
+    assertEquals(0, practice.findLongestIncreasingSequence(emptyList));
+  }
+
 }
