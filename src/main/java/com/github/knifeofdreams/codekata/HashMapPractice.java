@@ -8,22 +8,28 @@ import java.util.Set;
 public class HashMapPractice {
 
   // Add the key-value pair to the hashmap. Use the built-in HashMap method.
-  public HashMap<String, Integer> add(HashMap<String, Integer> map, String key, Integer value) {
-    return null;
+  public HashMap<String, Integer> add(HashMap<String, Integer> map, String key, Integer value)
+  {
+    map.put(key,value);
+    return map;
   }
 
   // Add the key-value pair to the hashmap IF AND ONLY IF the key is not present in the map. Use the built-in HashMap method.
   public HashMap<String, Integer> addIfAbsent(HashMap<String, Integer> map, String key, Integer value) {
-    return null;
+    map.putIfAbsent(key, value);
+    return map;
   }
 
   // Return a value associated with a given key from the HashMap. Use the built-in HashMap method.
-  public Integer get(HashMap<String, Integer> map, String key) {
-    return null;
+  public Integer get(HashMap<String, Integer> map, String key)
+  {
+    return map.get(key);
   }
 
   // check whether a particular key/value exist in a HashMap. Use the built-in HashMap method.
-  public boolean contains(HashMap<String, Integer> map, String key) {
+  public boolean contains(HashMap<String, Integer> map, String key)
+  {
+
     return false;
   }
 
