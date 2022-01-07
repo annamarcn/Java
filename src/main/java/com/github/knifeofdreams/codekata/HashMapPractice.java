@@ -29,13 +29,18 @@ public class HashMapPractice {
   // check whether a particular key/value exist in a HashMap. Use the built-in HashMap method.
   public boolean contains(HashMap<String, Integer> map, String key)
   {
-
+    if(map.containsKey(key))
+    {
+      return true;
+    }
     return false;
   }
 
   // Return the number of key-value mappings present in a HashMap (the size of the map). Use the built-in HashMap method.
-  public int size(HashMap<String, Integer> map) {
-    return 0;
+  public int size(HashMap<String, Integer> map)
+  {
+    System.out.print("The map has this many key-value mappings: ");
+    return map.size();
   }
 
   // Remove all key-value pairs from a HashMap. Use the built-in HashMap method.

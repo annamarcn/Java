@@ -13,6 +13,12 @@ public class Runner {
     HashMap<String, Integer> map = new HashMap<>();
 
     System.out.println(practice.add(map, "Stockholm", 1));
+    practice.add(map, "London", 2);
+    practice.add(map, "Uppsala", 3);
+    System.out.println(practice.addIfAbsent(map, "Semeltown", 4));
+    System.out.println(practice.get(map, "Stockholm"));
+    System.out.println("True if value exists in the map, false if it doesnt: " + practice.contains(map, "Stockholm"));
+    System.out.println(practice.size(map));
     // Add the rest of the tests here. I'll write tests for the last two exercises.
 
     TrickyObject trickyObj1 = new TrickyObject();
@@ -20,12 +26,12 @@ public class Runner {
     TrickyObject trickyObj3 = new TrickyObject();
 
     List<TrickyObject> trickyObjects = List.of(trickyObj1, trickyObj3, trickyObj2, trickyObj2, trickyObj2, trickyObj1);
-    System.out.println(practice.countInList(trickyObjects));
+    //System.out.println(practice.countInList(trickyObjects));
 
     // The following result should be true
-    System.out.println(practice.isPangram("thequickbrownfoxjumpsoverthelazydog"));
+    //System.out.println(practice.isPangram("thequickbrownfoxjumpsoverthelazydog"));
 
     // The following result should be false
-    System.out.println(practice.isPangram("JuditIsATroll"));
+    //System.out.println(practice.isPangram("JuditIsATroll"));
   }
 }
