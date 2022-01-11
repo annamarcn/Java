@@ -3,6 +3,7 @@ package com.github.knifeofdreams.codekata;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.Set;
 
 public class HashMapPractice {
@@ -29,11 +30,7 @@ public class HashMapPractice {
   // check whether a particular key/value exist in a HashMap. Use the built-in HashMap method.
   public boolean contains(HashMap<String, Integer> map, String key)
   {
-    if(map.containsKey(key))
-    {
-      return true;
-    }
-    return false;
+    return map.containsKey(key);
   }
 
   // Return the number of key-value mappings present in a HashMap (the size of the map). Use the built-in HashMap method.
@@ -44,17 +41,33 @@ public class HashMapPractice {
   }
 
   // Remove all key-value pairs from a HashMap. Use the built-in HashMap method.
-  public HashMap<String, Integer> clear(HashMap<String, Integer> map) {
+  public HashMap<String, Integer> clear(HashMap<String, Integer> map)
+  {
+    map.clear();
     return null;
   }
 
   // Remove a key-value pair from the HashMap. Use the built-in HashMap method.
   public HashMap<String, Integer> removeByKey(HashMap<String, Integer> map, String key) {
-    return null;
+    map.remove(key);
+    return map;
   }
 
   // Remove a key-value pair from a HashMap if the key is currently mapped to the input value.
   public HashMap<String, Integer> removeByValue(HashMap<String, Integer> map, Integer value) {
+
+    Integer current;
+
+    for (Entry<String, Integer> entry : map.entrySet())
+    {
+      current = entry.getValue();
+
+      if(current.equals(value))
+      {
+        map.remove(entry.getKey());
+        return map;
+      }
+    }
     return null;
   }
 

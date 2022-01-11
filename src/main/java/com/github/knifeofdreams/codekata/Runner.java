@@ -19,6 +19,9 @@ public class Runner {
     System.out.println(practice.get(map, "Stockholm"));
     System.out.println("True if value exists in the map, false if it doesnt: " + practice.contains(map, "Stockholm"));
     System.out.println(practice.size(map));
+    //System.out.println(practice.clear(map));
+    System.out.println(practice.removeByKey(map, "Stockholm"));
+    System.out.println(practice.removeByValue(map, 3));
     // Add the rest of the tests here. I'll write tests for the last two exercises.
 
     TrickyObject trickyObj1 = new TrickyObject();
