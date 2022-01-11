@@ -78,8 +78,12 @@ public class HashMapPractice {
   }
 
   // Replace a value associated with a key if it is mapped to given value.
-  public HashMap<String, Integer> replaceIf(HashMap<String, Integer> map, Integer oldValue, Integer newValue) {
-    return null;
+  public HashMap<String, Integer> replaceIf(HashMap<String, Integer> map, String key, Integer oldValue, Integer newValue) {
+    if(map.get(key).equals(oldValue))
+    {
+      map.put(key, newValue);
+    }
+    return map;
   }
 
   // Return all keys present in a HashMap. Use the built-in HashMap method.
@@ -99,7 +103,17 @@ public class HashMapPractice {
   // Count the number of occurrences of the tricky objects in the array list.
   // Return a HashMap where the keys are the tricky objects and the values are the number of their occurrences.
   public HashMap<TrickyObject, Integer> countInList(List<TrickyObject> trickyObjects) {
-    return null;
+    HashMap<TrickyObject, Integer> map = new HashMap<>();
+    int value = 1;
+    for(int i = 0; i < trickyObjects.size(); i++)
+    {
+      if(map.containsKey(trickyObjects.get(i))){
+        map.put(trickyObjects.get(i), value++);
+      }else{
+        map.put(trickyObjects.get(i), value);
+      }
+    }
+    return map;
   }
 
   // Check if the Sentence Is Pangram. A pangram is a sentence where every letter of the English alphabet appears at least once.

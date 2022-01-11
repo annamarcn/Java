@@ -23,6 +23,7 @@ public class Runner {
     System.out.println(practice.removeByKey(map, "Stockholm"));
     System.out.println(practice.removeByValue(map, 3));
     System.out.println(practice.replace(map, "Göteborg", 3));
+    System.out.println(practice.replaceIf(map, "Göteborg", 3, 12));
     System.out.println(practice.keys(map));
     System.out.println(practice.values(map));
     // Add the rest of the tests here. I'll write tests for the last two exercises.
@@ -32,7 +33,7 @@ public class Runner {
     TrickyObject trickyObj3 = new TrickyObject();
 
     List<TrickyObject> trickyObjects = List.of(trickyObj1, trickyObj3, trickyObj2, trickyObj2, trickyObj2, trickyObj1);
-    //System.out.println(practice.countInList(trickyObjects));
+    System.out.println(practice.countInList(trickyObjects));
 
     // The following result should be true
     //System.out.println(practice.isPangram("thequickbrownfoxjumpsoverthelazydog"));
