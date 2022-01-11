@@ -73,7 +73,8 @@ public class HashMapPractice {
 
   // Replace a value associated with a given key in the HashMap.
   public HashMap<String, Integer> replace(HashMap<String, Integer> map, String key, Integer value) {
-    return null;
+    map.put(key, value); //If the mapping exists for the key, the old value is overwritten. In this line, the old value is returned.
+    return map; //the map with the new updated value
   }
 
   // Replace a value associated with a key if it is mapped to given value.
@@ -83,12 +84,12 @@ public class HashMapPractice {
 
   // Return all keys present in a HashMap. Use the built-in HashMap method.
   public Set<String> keys(HashMap<String, Integer> map) {
-    return null;
+    return map.keySet();
   }
 
   // Return all the values present in a HashMap. Use the built-in HashMap method.
   public Collection<Integer> values(HashMap<String, Integer> map) {
-    return null;
+    return map.values();
   }
 
   /*

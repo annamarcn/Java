@@ -22,6 +22,9 @@ public class Runner {
     //System.out.println(practice.clear(map));
     System.out.println(practice.removeByKey(map, "Stockholm"));
     System.out.println(practice.removeByValue(map, 3));
+    System.out.println(practice.replace(map, "Göteborg", 3));
+    System.out.println(practice.keys(map));
+    System.out.println(practice.values(map));
     // Add the rest of the tests here. I'll write tests for the last two exercises.
 
     TrickyObject trickyObj1 = new TrickyObject();
