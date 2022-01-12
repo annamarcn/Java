@@ -36,7 +36,7 @@ public class Runner {
     System.out.println(practice.countInList(trickyObjects));
 
     // The following result should be true
-    //System.out.println(practice.isPangram("thequickbrownfoxjumpsoverthelazydog"));
+   System.out.println(practice.isPangram("thequickbrownfoxjumpsoverthelazydog"));
 
     // The following result should be false
     //System.out.println(practice.isPangram("JuditIsATroll"));

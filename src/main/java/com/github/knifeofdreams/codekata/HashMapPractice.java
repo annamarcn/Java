@@ -105,7 +105,7 @@ public class HashMapPractice {
   public HashMap<TrickyObject, Integer> countInList(List<TrickyObject> trickyObjects) {
     HashMap<TrickyObject, Integer> map = new HashMap<>();
     int value = 1;
-    for(int i = 0; i < trickyObjects.size(); i++)
+    for(int i = 0; i < trickyObjects.size(); i++) //let's also write it the other way
     {
       if(map.containsKey(trickyObjects.get(i))){
         map.put(trickyObjects.get(i), value++);
@@ -119,6 +119,24 @@ public class HashMapPractice {
   // Check if the Sentence Is Pangram. A pangram is a sentence where every letter of the English alphabet appears at least once.
   // Given a string sentence containing only lowercase English letters, return true if sentence is a pangram, or false otherwise.
   public boolean isPangram(String sentence) {
+    String alphabet = "abcdefghijklmnopqrstuvwxyz";
+    HashMap<Character, Integer> map = new HashMap<>();
+    HashMap<Character, Integer> sentenceMap = new HashMap<>();
+
+    for(int i = 0; i < alphabet.length(); i++)
+    {
+      map.put(alphabet.charAt(i), i);
+    }
+
+    for(int j = 0; j < sentence.length(); j++)
+    {
+     map.remove(sentence.charAt(j));
+    }
+
+    if(map.isEmpty())
+    {
+      return true;
+    }
     return false;
   }
 
