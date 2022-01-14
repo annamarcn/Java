@@ -44,7 +44,7 @@ public class HashMapPractice {
   public HashMap<String, Integer> clear(HashMap<String, Integer> map)
   {
     map.clear();
-    return null;
+    return map;
   }
 
   // Remove a key-value pair from the HashMap. Use the built-in HashMap method.
@@ -114,6 +114,29 @@ public class HashMapPractice {
       }
     }
     return map;
+
+//    HashMap<TrickyObject, Integer> counter = new HashMap<>();
+//
+//    for(TrickyObject object : trickyObjects) {
+//      Integer numberOfOccurrences = counter.get(object);
+//      if(numberOfOccurrences == null) {
+//        numberOfOccurrences = 1;
+//      } else {
+//        numberOfOccurrences++;
+//      }
+//      counter.put(object, numberOfOccurrences);
+//    }
+//    return counter;
+
+//    HashMap<TrickyObject, Integer> counter = new HashMap<>();
+//
+//    for (TrickyObject object : trickyObjects) {
+//      Integer value = counter.getOrDefault(object, 0);
+//      value++;
+//      counter.put(object, value);
+//    }
+//
+//    return counter;
   }
 
   // Check if the Sentence Is Pangram. A pangram is a sentence where every letter of the English alphabet appears at least once.
@@ -138,9 +161,24 @@ public class HashMapPractice {
       return true;
     }
     return false;
+
+//    HashMap<Character, Integer> characters = new HashMap<>();
+//    for (int i = 0; i < sentence.length(); i++) {
+//      Integer numberOfOccurrences = characters.getOrDefault(sentence.charAt(i), 0);
+//      numberOfOccurrences++;
+//      characters.put(Character.toLowerCase(sentence.charAt(i)), numberOfOccurrences);
+//    }
+//
+//    return characters.size() == 26;
   }
 
   static class TrickyObject {
+
+    private final String id;
+
+    public TrickyObject(String id) {
+      this.id = id;
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -150,6 +188,11 @@ public class HashMapPractice {
     @Override
     public int hashCode() {
       return super.hashCode();
+    }
+
+    @Override
+    public String toString() {
+      return "TrickyObject{" + id + "}";
     }
   }
 }

@@ -21,6 +21,9 @@ public class Runner {
     System.out.println(practice.size(map));
     //System.out.println(practice.clear(map));
     System.out.println(practice.removeByKey(map, "Stockholm"));
+
+    practice.add(map, "Budapest", 3);
+    // BUG: removeByValue doesn't consider duplicate values at the moment
     System.out.println(practice.removeByValue(map, 3));
     System.out.println(practice.replace(map, "Göteborg", 3));
     System.out.println(practice.replaceIf(map, "Göteborg", 3, 12));
@@ -28,11 +31,13 @@ public class Runner {
     System.out.println(practice.values(map));
     // Add the rest of the tests here. I'll write tests for the last two exercises.
 
-    TrickyObject trickyObj1 = new TrickyObject();
-    TrickyObject trickyObj2 = new TrickyObject();
-    TrickyObject trickyObj3 = new TrickyObject();
+    TrickyObject trickyObj1 = new TrickyObject("1");
+    TrickyObject trickyObj2 = new TrickyObject("2");
+    TrickyObject trickyObj3 = new TrickyObject("3");
+    TrickyObject trickyObj4 = new TrickyObject("4");
 
-    List<TrickyObject> trickyObjects = List.of(trickyObj1, trickyObj3, trickyObj2, trickyObj2, trickyObj2, trickyObj1);
+    // BUG: count of objects is not correct with this implementation
+    List<TrickyObject> trickyObjects = List.of(trickyObj1, trickyObj3, trickyObj2, trickyObj2, trickyObj2, trickyObj1, trickyObj4);
     System.out.println(practice.countInList(trickyObjects));
 
     // The following result should be true
