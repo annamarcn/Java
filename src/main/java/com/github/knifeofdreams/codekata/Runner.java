@@ -15,7 +15,7 @@ public class Runner {
     System.out.println(practice.add(map, "Stockholm", 1));
     practice.add(map, "London", 2);
     practice.add(map, "Uppsala", 3);
-   System.out.println(practice.addIfAbsent(map, "Semeltown", 4));
+    System.out.println(practice.addIfAbsent(map, "Semeltown", 4));
     System.out.println(practice.get(map, "Stockholm"));
     System.out.println("True if value exists in the map, false if it doesnt: " + practice.contains(map, "Stockholm"));
     System.out.println(practice.size(map));
@@ -25,7 +25,6 @@ public class Runner {
 
 
     System.out.println(practice.add(map, "Budapest", 3));
-    // BUG: removeByValue doesn't consider duplicate values at the moment
     System.out.println(practice.removeByValue(map, 3));
     System.out.println(practice.replace(map, "Göteborg", 3));
     System.out.println(practice.replaceIf(map, "Göteborg", 3, 12));
@@ -38,7 +37,6 @@ public class Runner {
     TrickyObject trickyObj3 = new TrickyObject("3");
     TrickyObject trickyObj4 = new TrickyObject("4");
 
-    // BUG: count of objects is not correct with this implementation
     List<TrickyObject> trickyObjects = List.of(trickyObj1, trickyObj3, trickyObj2, trickyObj2, trickyObj2, trickyObj1, trickyObj4);
     System.out.println(practice.countInList(trickyObjects));
 
