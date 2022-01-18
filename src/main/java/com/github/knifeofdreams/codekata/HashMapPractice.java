@@ -1,8 +1,11 @@
 package com.github.knifeofdreams.codekata;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
@@ -56,19 +59,8 @@ public class HashMapPractice {
   // Remove a key-value pair from a HashMap if the key is currently mapped to the input value.
   public HashMap<String, Integer> removeByValue(HashMap<String, Integer> map, Integer value) {
 
-    Integer current;
-
-    for (Entry<String, Integer> entry : map.entrySet())
-    {
-      current = entry.getValue();
-
-      if(current.equals(value))
-      {
-        map.remove(entry.getKey());
-        return map;
-      }
-    }
-    return null;
+    map.values().removeAll(Collections.singleton(value));
+    return map;
   }
 
   // Replace a value associated with a given key in the HashMap.
@@ -102,6 +94,7 @@ public class HashMapPractice {
 
   // Count the number of occurrences of the tricky objects in the array list.
   // Return a HashMap where the keys are the tricky objects and the values are the number of their occurrences.
+  /*
   public HashMap<TrickyObject, Integer> countInList(List<TrickyObject> trickyObjects) {
     HashMap<TrickyObject, Integer> map = new HashMap<>();
     int value = 1;
@@ -114,19 +107,20 @@ public class HashMapPractice {
       }
     }
     return map;
+  */
+  public HashMap<TrickyObject, Integer> countInList(List<TrickyObject> trickyObjects) {
+    HashMap<TrickyObject, Integer> counter = new HashMap<>();
 
-//    HashMap<TrickyObject, Integer> counter = new HashMap<>();
-//
-//    for(TrickyObject object : trickyObjects) {
-//      Integer numberOfOccurrences = counter.get(object);
-//      if(numberOfOccurrences == null) {
-//        numberOfOccurrences = 1;
-//      } else {
-//        numberOfOccurrences++;
-//      }
-//      counter.put(object, numberOfOccurrences);
-//    }
-//    return counter;
+    for(TrickyObject object : trickyObjects) {
+      Integer numberOfOccurrences = counter.get(object);
+      if(numberOfOccurrences == null) {
+        numberOfOccurrences = 1;
+      } else {
+        numberOfOccurrences++;
+      }
+      counter.put(object, numberOfOccurrences);
+    }
+    return counter;
 
 //    HashMap<TrickyObject, Integer> counter = new HashMap<>();
 //
@@ -156,11 +150,7 @@ public class HashMapPractice {
      map.remove(sentence.charAt(j));
     }
 
-    if(map.isEmpty())
-    {
-      return true;
-    }
-    return false;
+    return map.isEmpty();
 
 //    HashMap<Character, Integer> characters = new HashMap<>();
 //    for (int i = 0; i < sentence.length(); i++) {

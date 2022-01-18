@@ -15,14 +15,16 @@ public class Runner {
     System.out.println(practice.add(map, "Stockholm", 1));
     practice.add(map, "London", 2);
     practice.add(map, "Uppsala", 3);
-    System.out.println(practice.addIfAbsent(map, "Semeltown", 4));
+   System.out.println(practice.addIfAbsent(map, "Semeltown", 4));
     System.out.println(practice.get(map, "Stockholm"));
     System.out.println("True if value exists in the map, false if it doesnt: " + practice.contains(map, "Stockholm"));
     System.out.println(practice.size(map));
     //System.out.println(practice.clear(map));
     System.out.println(practice.removeByKey(map, "Stockholm"));
 
-    practice.add(map, "Budapest", 3);
+
+
+    System.out.println(practice.add(map, "Budapest", 3));
     // BUG: removeByValue doesn't consider duplicate values at the moment
     System.out.println(practice.removeByValue(map, 3));
     System.out.println(practice.replace(map, "Göteborg", 3));
@@ -44,6 +46,6 @@ public class Runner {
    System.out.println(practice.isPangram("thequickbrownfoxjumpsoverthelazydog"));
 
     // The following result should be false
-    //System.out.println(practice.isPangram("JuditIsATroll"));
+    System.out.println(practice.isPangram("JuditIsATroll"));
   }
 }
