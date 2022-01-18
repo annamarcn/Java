@@ -61,6 +61,18 @@ public class HashMapPractice {
 
     map.values().removeAll(Collections.singleton(value));
     return map;
+
+//    Integer currentVal;
+//    HashMap result = new HashMap<String, Integer>();
+//    for (Entry<String, Integer> entry : map.entrySet())
+//    {
+//      currentVal = entry.getValue();
+//      if(!currentVal.equals(value))
+//      {
+//        result.put(entry.getKey(), entry.getValue());
+//      }
+//    }
+//    return result;
   }
 
   // Replace a value associated with a given key in the HashMap.
