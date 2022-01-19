@@ -5,88 +5,90 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class ArraysAndStringsTest {
-  private ArraysAndStrings result = new ArraysAndStrings(); //why does it have to be "private" ?
+  private ArraysAndStrings result = new ArraysAndStrings(); //why does it have to be "private" ? This is only going to be accessed from methods inside this class, and doesn't need to be visible from outside.
 
   @Test
-  public void emptyStringIsNotUnique()
+  public void emptyStringIsUnique()
   {
-    result.hasOnlyUniqueCharacters("");
-
-    assertFalse(false);
+    assertTrue(result.hasOnlyUniqueCharacters(""));
   }
 
   @Test
   public void stringWithOneCharacterIsUnique()
   {
-    result.hasOnlyUniqueCharacters("a");
-
-    assertTrue(true);
+    assertTrue(result.hasOnlyUniqueCharacters("a"));
   }
 
   @Test
-  public void repeatingCharactersIsNotUnique()
+  public void repeatingCharactersAreNotUnique()
   {
-    result.hasOnlyUniqueCharacters("aa");
+    assertFalse(result.hasOnlyUniqueCharacters("aa"));
+  }
 
-    assertFalse(false);
+  @Test
+  public void repeatingMixedCharactersAreNotUnique()
+  {
+    assertFalse(result.hasOnlyUniqueCharacters("baca"));
   }
 
   @Test
   public void emptyStringsCannotBePermutations()
   {
-    result.isPermutation("", "");
-
-    assertFalse(false);
+    assertTrue(result.isPermutation("", ""));
   }
 
   @Test
   public void permutationsMustBeEqualLength()
   {
-    result.isPermutation("aa", "b");
-
-    assertFalse(false);
+    assertFalse(result.isPermutation("aa", "b"));
   }
 
   @Test
   public void differentCharsInStringsCannotBePermutation()
   {
-    result.isPermutation("abc", "def");
-
-    assertFalse(false);
+    assertFalse(result.isPermutation("abc", "def"));
   }
 
   @Test
   public void sameCharsInStringsIsPermutation()
   {
-    result.isPermutation("abc", "cBa");
+    assertTrue(result.isPermutation("abc", "cba"));
+  }
 
-    assertTrue(true);
+  @Test
+  public void sameCharsInStringsIsPermutationRegardlessOfCapitalization()
+  {
+    assertTrue(result.isPermutation("abc", "cBa"));
+  }
+
+  @Test
+  public void emptyStringStaysUnchanged()
+  {
+    assertEquals("", result.URLify(""));
+  }
+
+  @Test
+  public void stringWithoutSpacesStaysUnchanged()
+  {
+    assertEquals("aabc", result.URLify("aabc"));
   }
 
   @Test
   public void spacesAreReplacedWithPercentage20()
   {
-    String str = "abc def";
-
-    String expected = "abc%20def";
-
-    assertEquals(expected, result.URLify(str));
+    assertEquals("abc%20def", result.URLify("abc def"));
   }
 
   @Test
   public void isPalindrome()
   {
-    result.isPermutationOfPalindrome("Tomato otamot");
-
-    assertTrue(true);
+    assertTrue(result.isPermutationOfPalindrome("Tomato otamot"));
   }
 
   @Test
   public void isPermutation()
   {
-    result.isPermutationOfPalindrome("oTmato otamot");
-
-    assertTrue(true);
+    assertTrue(result.isPermutationOfPalindrome("oTmato otamot"));
   }
 
 }

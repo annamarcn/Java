@@ -16,15 +16,11 @@ public class ArraysAndStrings {
       setOfChars.add(str.charAt(i));
     }
 
-    if(str.length() == setOfChars.size())
-    {
-      return true;
-    }
-    return false;
+    return str.length() == setOfChars.size();
   }
 
   //Method to decide if, given two strings, one string is permutation of the other.
-
+// alternative solution: sort both strings, are they the same?
   public boolean isPermutation(String s1, String s2)
   {
     HashMap<Character, Integer> map = new HashMap<>();
@@ -55,7 +51,7 @@ public class ArraysAndStrings {
   public String URLify(String str)
   {
 
-    StringBuffer sb = new StringBuffer();
+    StringBuilder sb = new StringBuilder(); //whats the difference between this and StringBuffer?
 
     for(int i = 0; i < str.length(); i++)
     {
@@ -69,9 +65,7 @@ public class ArraysAndStrings {
       }
     }
 
-    String str2 = new String(sb);
-
-    return str2;
+    return new String(sb);
 
     /*char[] cr = new char[str.length()];
 
