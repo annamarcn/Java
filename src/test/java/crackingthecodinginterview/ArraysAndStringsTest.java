@@ -5,12 +5,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class ArraysAndStringsTest {
+  private ArraysAndStrings result = new ArraysAndStrings(); //why does it have to be "private" ?
 
   @Test
   public void emptyStringIsNotUnique()
   {
-    var result = new ArraysAndStrings(); //how can I break this out again?
-
     result.hasOnlyUniqueCharacters("");
 
     assertFalse(false);
@@ -19,8 +18,6 @@ class ArraysAndStringsTest {
   @Test
   public void stringWithOneCharacterIsUnique()
   {
-    var result = new ArraysAndStrings();
-
     result.hasOnlyUniqueCharacters("a");
 
     assertTrue(true);
@@ -29,8 +26,6 @@ class ArraysAndStringsTest {
   @Test
   public void repeatingCharactersIsNotUnique()
   {
-    var result = new ArraysAndStrings();
-
     result.hasOnlyUniqueCharacters("aa");
 
     assertFalse(false);
@@ -39,8 +34,6 @@ class ArraysAndStringsTest {
   @Test
   public void emptyStringsCannotBePermutations()
   {
-    var result = new ArraysAndStrings();
-
     result.isPermutation("", "");
 
     assertFalse(false);
@@ -49,8 +42,6 @@ class ArraysAndStringsTest {
   @Test
   public void permutationsMustBeEqualLength()
   {
-    var result = new ArraysAndStrings();
-
     result.isPermutation("aa", "b");
 
     assertFalse(false);
@@ -59,8 +50,6 @@ class ArraysAndStringsTest {
   @Test
   public void differentCharsInStringsCannotBePermutation()
   {
-    var result = new ArraysAndStrings();
-
     result.isPermutation("abc", "def");
 
     assertFalse(false);
@@ -69,9 +58,33 @@ class ArraysAndStringsTest {
   @Test
   public void sameCharsInStringsIsPermutation()
   {
-    var result = new ArraysAndStrings();
-
     result.isPermutation("abc", "cBa");
+
+    assertTrue(true);
+  }
+
+  @Test
+  public void spacesAreReplacedWithPercentage20()
+  {
+    String str = "abc def";
+
+    String expected = "abc%20def";
+
+    assertEquals(expected, result.URLify(str));
+  }
+
+  @Test
+  public void isPalindrome()
+  {
+    result.isPermutationOfPalindrome("Tomato otamot");
+
+    assertTrue(true);
+  }
+
+  @Test
+  public void isPermutation()
+  {
+    result.isPermutationOfPalindrome("oTmato otamot");
 
     assertTrue(true);
   }

@@ -6,10 +6,10 @@ public class Runner {
 
   public static void main(String[] args) {
     var practice = new ArraysAndStrings();
-    // This is the minimal compiling code. Set up the HashMap in a way that it's suitable to test your solution
 
     System.out.println(practice.hasOnlyUniqueCharacters("Abcdefg"));
     System.out.println(practice.isPermutation("abcdefg", "gfehcab"));
-
+    System.out.println(practice.URLify("abc def gh"));
+    System.out.println(practice.isPermutationOfPalindrome("veerargr fdsf"));
   }
 }
