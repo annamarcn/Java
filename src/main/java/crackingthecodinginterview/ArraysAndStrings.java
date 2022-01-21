@@ -100,9 +100,10 @@ public class ArraysAndStrings {
 
     for(int i = 0; i < str.length()-1; i++)
     {
-      if(str.charAt(i) != str.charAt(i+1))                                                     
+      if(str.charAt(i) != str.charAt(i+1) || i+1 == str.length())   //why doesn't it enter this loop for the last characters (see runner)?
       {
-        sb.append(str.charAt(i) + count);   //why doesn't this work? It becomes like: "104"
+        sb.append(str.charAt(i));
+        sb.append(count);
         count = 1;
       }
       else
