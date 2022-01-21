@@ -82,13 +82,63 @@ class ArraysAndStringsTest {
   @Test
   public void isPalindrome()
   {
-    assertTrue(result.isPermutationOfPalindrome("Tomato otamot"));
+    assertTrue(result.isPermutationOfPalindrome("carerac"));
   }
 
   @Test
   public void isPermutation()
   {
-    assertTrue(result.isPermutationOfPalindrome("oTmato otamot"));
+    assertTrue(result.isPermutationOfPalindrome("carerac"));
+  }
+
+  @Test
+  public void stringIsPermutationOfPalindrome()
+  {
+    assertTrue(result.isPermutationOfPalindrome("carerac"));
+  }
+
+  @Test
+  public void palindromeIsPermutationRegardlessOfCapitalization()
+  {
+    assertTrue(result.isPermutationOfPalindrome("cArerac")); //why does this work out of the box - I haven't done "toLowerCase" in this method?
+  }
+
+
+  @Test
+  public void emptyStringStaysTheSame()
+  {
+    assertEquals("", result.stringCompression(""));
+  }
+
+  @Test
+  public void stringWithOneCharRemainsUnchanged()
+  {
+    assertEquals("a", result.stringCompression("a"));
+  }
+
+
+  @Test
+  public void repeatingCharsAreRepresentedByNumbers()
+  {
+    assertEquals("a2b1c5a3", result.stringCompression("aabcccccaaa"));
+  }
+
+  @Test
+  public void repeatingCharsAreRepresentedByNumbersRegardlessOfCapitalization()
+  {
+    assertEquals("a2b1c5a3", result.stringCompression("aAbcCcccaaa"));
+  }
+
+  @Test
+  public void originalStringIsReturnedIfCompressedStringLongerThanOriginalString()
+  {
+    assertEquals("aaaabcdde", result.stringCompression("aaaabcdde"));
+  }
+
+  @Test
+  public void compressedStringIsReturnedIfShorterThanOriginalString()
+  {
+    assertEquals("aaaaaabccddee", result.stringCompression("a6b1c2d2e2"));
   }
 
 }

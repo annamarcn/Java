@@ -10,6 +10,7 @@ public class Runner {
     System.out.println(practice.hasOnlyUniqueCharacters("Abcdefg"));
     System.out.println(practice.isPermutation("abcdefg", "gfehcab"));
     System.out.println(practice.URLify("abc def gh"));
-    System.out.println(practice.isPermutationOfPalindrome("veerargr fdsf"));
+    System.out.println(practice.isPermutationOfPalindrome("anna"));
+    System.out.println(practice.stringCompression("aaaaaaabbbbbcccccddddd"));
   }
 }

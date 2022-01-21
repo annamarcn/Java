@@ -1,131 +1,124 @@
 package crackingthecodinginterview;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 
 public class ArraysAndStrings {
 
-  //Method to decide if a string has all unique characters.
-  public boolean hasOnlyUniqueCharacters(String str)
-  {
-    Set<Character> setOfChars = new HashSet<Character>();
+  // Method to decide if a string has all unique characters.
+  public boolean hasOnlyUniqueCharacters(String str) {
+    Set<Character> setOfChars = new HashSet<>();
 
-    for(int i = 0; i < str.length(); i++)
-    {
+    for (int i = 0; i < str.length(); i++) {
       setOfChars.add(str.charAt(i));
     }
 
     return str.length() == setOfChars.size();
   }
 
-  //Method to decide if, given two strings, one string is permutation of the other.
-// alternative solution: sort both strings, are they the same?
-  public boolean isPermutation(String s1, String s2)
-  {
+  // Method to decide if, given two strings, one string is permutation of the other.
+  // alternative solution: sort both strings, are they the same?
+  public boolean isPermutation(String s1, String s2) {
     HashMap<Character, Integer> map = new HashMap<>();
 
-    //Test 1: are they the same length?
-    if(s1.length() != s2.length())
-    {
+    // Test 1: are they the same length?
+    if (s1.length() != s2.length()) {
       return false;
     }
 
-    for(int i = 0; i < s1.length(); i++)
-    {
-      map.put(s1.charAt(i), i);
+    for (int i = 0; i < s1.length(); i++) {
+      map.put(Character.toLowerCase(s1.charAt(i)), i);
     }
 
-    for(int j = 0; j < s2.length(); j++)
-    {
-        if(map.containsKey(s2.charAt(j)))
-        {
-          map.remove(s2.charAt(j));
-        }
+    for (int j = 0; j < s2.length(); j++) {
+      if (map.containsKey(Character.toLowerCase(s2.charAt(j)))) {
+        map.remove(Character.toLowerCase(s2.charAt(j)));
+      }
     }
     return map.isEmpty();
   }
 
-  //Method to URLify string, i.e. replaces all spaces in string with '%20'.
+  // Method to URLify string, i.e. replaces all spaces in string with '%20'.
 
-  public String URLify(String str)
-  {
+  public String URLify(String str) {
 
-    StringBuilder sb = new StringBuilder(); //whats the difference between this and StringBuffer?
+    StringBuilder sb = new StringBuilder(); // whats the difference between this and StringBuffer?
 
-    for(int i = 0; i < str.length(); i++)
-    {
-      if(str.charAt(i) == ' ')
-      {
+    for (int i = 0; i < str.length(); i++) {
+      if (str.charAt(i) == ' ') {
         sb.append("%20");
-      }
-      else
-      {
+      } else {
         sb.append(str.charAt(i));
       }
     }
 
     return new String(sb);
+  }
 
-    /*char[] cr = new char[str.length()];
+  public boolean isPermutationOfPalindrome(String str) {
 
-    int count = 0;
+    // Palindrome has at most 1 odd character, all else are even. Check if there's more than 1 odd
+    // chars in map.
+    Map<Character, Integer> map = new HashMap<>();
+    int count = 1;
 
-    for(int i = 0; i < str.length(); i++)
+    for (int i = 0; i < str.length(); i++) {
+      if (map.containsKey(Character.toLowerCase(str.charAt(i)))) {
+        count = map.get(Character.toLowerCase(str.charAt(i))); // if the map already contains the key, increase count.
+        count++;
+      }
+      map.put(Character.toLowerCase(str.charAt(i)), count); // otherwise add it
+    }
+
+    int amountOfOddValues =
+        0; // if there's more than 1 odd value in the map, that means it's not a palindrome.
+
+    for (char c : map.keySet()) {
+
+      if (map.get(c) % 2 == 1) {
+        if (amountOfOddValues == 1) {
+          return false;
+        }
+        amountOfOddValues++;
+      }
+    }
+
+    return true;
+  }
+
+  public String stringCompression(String str) {
+    int count = 1;
+    StringBuilder sb = new StringBuilder();
+
+    if (str.length() <= 1) {
+      return str;
+    }
+
+    for(int i = 0; i < str.length()-1; i++)
     {
-      if(str.charAt(i) == ' ')
+      if(str.charAt(i) != str.charAt(i+1))                                                     
+      {
+        sb.append(str.charAt(i) + count);   //why doesn't this work? It becomes like: "104"
+        count = 1;
+      }
+      else
       {
         count++;
       }
     }
-    count = count * 3;
 
-    char[] newChar = new char[str.length() + count];
 
-    for(int i = 0; i < newChar.length; i++)
+
+    if(sb.length() >= str.length())
     {
-      if(newChar[i] == ' ')
-      {
-        newChar[i] = '%';
-        newChar[i+1] = '2';
-        newChar[i+2] = '0';
-        i = i+3;
-      }
+      return str;
     }
 
-    String str2 = new String(newChar);
-    return str2;*/
+    return sb.toString();
   }
 
-  public boolean isPermutationOfPalindrome(String str)
-  {
-    boolean isPalindrome = false;
-    boolean isPermutation = false;
-
-    for(int i = 0; i < str.length(); i++)
-    {
-      for(int j = str.length()-1; j >= 0; j--)
-      {
-        if(str.charAt(i) == str.charAt(j))
-        {
-          isPalindrome = true;
-        }
-      }
-    }
-
-    StringBuffer sb = new StringBuffer(str);
-    sb = sb.reverse();
-
-    String str2 = new String(sb.toString());
-
-    isPermutation = isPermutation(str,str2);
-
-    if(isPermutation == true && isPalindrome == true)
-    {
-      return true;
-    }
-    return false;
   }
-
-}
-
