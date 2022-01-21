@@ -111,8 +111,6 @@ public class ArraysAndStrings {
       }
     }
 
-
-
     if(sb.length() >= str.length())
     {
       return str;
