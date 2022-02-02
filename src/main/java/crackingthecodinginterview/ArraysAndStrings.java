@@ -120,4 +120,23 @@ public class ArraysAndStrings {
     return sb.toString();
   }
 
+  public boolean stringRotation(String s1, String s2)
+  {
+     StringBuilder sb = new StringBuilder(s1);
+
+     sb.append(s1);
+
+     if(s1.length() == 0 && s2.length() == 0)
+     {
+       return true;
+     }
+
+     if(sb.indexOf(s2) == -1)
+     {
+       return false;
+     }
+
+     return true;
+  }
+
   }

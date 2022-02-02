@@ -141,4 +141,34 @@ class ArraysAndStringsTest {
     assertEquals("aaaaaabccddee", result.stringCompression("a6b1c2d2e2"));
   }
 
+  @Test
+  public void emptyStringIsRotationOfOtherEmptyString()
+  {
+    assertTrue(result.stringRotation("", ""));
+  }
+
+  @Test
+  public void stringsWithOneAndTheSameCharacterIsRotation()
+  {
+    assertTrue(result.stringRotation("a", "a"));
+  }
+
+  @Test
+  public void stringWithOnlyRepeatingAndSameCharactersIsRotation()
+  {
+    assertTrue(result.stringRotation("aaaaaaa", "aaa"));
+  }
+
+  @Test
+  public void stringRotationIsTrue()
+  {
+    assertTrue(result.stringRotation("waterbottle", "erbottlewat"));
+  }
+
+  @Test
+  public void stringRotationIsFalse()
+  {
+    assertFalse(result.stringRotation("pancake", "waterbottle"));
+  }
+
 }
