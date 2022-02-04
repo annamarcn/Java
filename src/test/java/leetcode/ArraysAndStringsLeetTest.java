@@ -9,52 +9,43 @@ class ArraysAndStringsLeetTest {
   private ArraysAndStringsLeet result = new ArraysAndStringsLeet();
 
   @Test
-  public void emptyAllowedStringMeansZeroConsistentStrings()
-  {
+  public void emptyAllowedStringMeansZeroConsistentStrings() {
     assertEquals(0, result.numberOfConsistentStrings("", List.of("aa", "b")));
   }
 
   @Test
-  public void emptyWordsArrayMeansZeroConsistentStrings()
-  {
+  public void emptyWordsArrayMeansZeroConsistentStrings() {
     assertEquals(0, result.numberOfConsistentStrings("abc", List.of()));
   }
 
   @Test
-  public void oneEmptyWordsStringIsNotCountedAsConsistent()
-  {
+  public void oneEmptyWordsStringIsNotCountedAsConsistent() {
     assertEquals(2, result.numberOfConsistentStrings("abc", List.of("a", "", "b")));
   }
 
   @Test
-  public void onlyConsistentStringsAreCounted()
-  {
-    assertEquals(2, result.numberOfConsistentStrings("abc", List.of("aabc", "tyeu", "cbbaaa", "test")));
+  public void onlyConsistentStringsAreCounted() {
+    assertEquals(
+        2, result.numberOfConsistentStrings("abc", List.of("aabc", "tyeu", "cbbaaa", "test")));
   }
 
   @Test
-  public void noConsistentStringsReturnsZero()
-  {
+  public void noConsistentStringsReturnsZero() {
     assertEquals(0, result.numberOfConsistentStrings("abc", List.of("nhyy", "ktr", "prw")));
   }
 
   @Test
-  public void countsNumberOfConsistentStringsIndependentOfCapitalization()
-  {
+  public void countsNumberOfConsistentStringsIndependentOfCapitalization() {
     assertEquals(2, result.numberOfConsistentStrings("abc", List.of("Abbc", "cbBa", "trty")));
   }
 
   @Test
-  public void emptyArrayHasZeroUniqueElements()
-  {
+  public void emptyArrayHasZeroUniqueElements() {
     assertEquals(0, result.numberOfUniqueElements(List.of()));
   }
 
   @Test
-  public void onlyUniqueElementsAreCounted()
-  {
+  public void onlyUniqueElementsAreCounted() {
     assertEquals(6, result.numberOfUniqueElements(List.of(1, 1, 2, 1, 2, 3)));
   }
-
-
 }
