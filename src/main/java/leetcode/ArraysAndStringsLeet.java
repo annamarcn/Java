@@ -1,8 +1,10 @@
 package leetcode;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
+import java.util.Map;
+import java.util.Set;
 
 public class ArraysAndStringsLeet {
 
@@ -32,7 +34,7 @@ public class ArraysAndStringsLeet {
         stringMap.put(Character.toLowerCase(str.charAt(i)), i);
       }
 
-      for(char c : stringMap.keySet())
+      for(char c : stringMap.keySet()) // doesn't enter here the 2nd time
       {
         if(map.containsKey(c))
         {
@@ -47,5 +49,26 @@ public class ArraysAndStringsLeet {
 
     return numConsStrings;
   }
+
+  public int numberOfUniqueElements(List<Integer> nums){
+
+    if (nums.isEmpty()) {
+      return 0;
+    }
+
+    Set<Integer> setOfNums = new HashSet<>();
+    int sum = 0;
+
+    for(int i = 0; i < nums.size(); i++){
+      setOfNums.add(nums.get(i));
+    }
+
+    for(int j : setOfNums){
+      sum += nums.get(j);
+    }
+
+    return sum;
+  }
+
 
 }

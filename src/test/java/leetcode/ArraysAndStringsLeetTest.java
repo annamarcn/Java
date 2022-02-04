@@ -44,4 +44,17 @@ class ArraysAndStringsLeetTest {
     assertEquals(2, result.numberOfConsistentStrings("abc", List.of("Abbc", "cbBa", "trty")));
   }
 
+  @Test
+  public void emptyArrayHasZeroUniqueElements()
+  {
+    assertEquals(0, result.numberOfUniqueElements(List.of()));
+  }
+
+  @Test
+  public void onlyUniqueElementsAreCounted()
+  {
+    assertEquals(6, result.numberOfUniqueElements(List.of(1, 1, 2, 1, 2, 3)));
+  }
+
+
 }
