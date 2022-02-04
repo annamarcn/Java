@@ -1,9 +1,10 @@
 package leetcode;
 
-import java.util.List;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ArraysAndStringsLeetTest {
   private ArraysAndStringsLeet result = new ArraysAndStringsLeet();
@@ -46,6 +47,6 @@ class ArraysAndStringsLeetTest {
 
   @Test
   public void onlyUniqueElementsAreCounted() {
-    assertEquals(6, result.numberOfUniqueElements(List.of(1, 1, 2, 1, 2, 3)));
+    assertEquals(18, result.numberOfUniqueElements(List.of(1, 1, 5, 5, 10, 2, 1, 2)));
   }
 }

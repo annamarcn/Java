@@ -59,9 +59,10 @@ public class ArraysAndStringsLeet {
     for (int i = 0; i < nums.size(); i++) {
       setOfNums.add(nums.get(i));
     }
+    List<Integer> list = new ArrayList<Integer>(setOfNums);
 
-    for (int j : setOfNums) {
-      sum += nums.get(j);
+    for (int j = 0; j < setOfNums.size(); j++) {
+      sum += list.get(j);
     }
 
     return sum;
