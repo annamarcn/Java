@@ -113,7 +113,7 @@ class ArraysAndStringsTest {
   @Test
   public void stringWithOneCharRemainsUnchanged()
   {
-    assertEquals("a", result.stringCompression("a"));
+    assertEquals("a3", result.stringCompression("aaa"));
   }
 
 

@@ -1,9 +1,7 @@
 package crackingthecodinginterview;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -98,9 +96,9 @@ public class ArraysAndStrings {
       return str;
     }
 
-    for(int i = 0; i < str.length()-1; i++)
+    for(int i = 0; i < str.length() - 1; i++)
     {
-      if(str.charAt(i) != str.charAt(i+1) || i+1 == str.length())   //why doesn't it enter this loop for the last characters (see runner)?
+      if(str.charAt(i) != str.charAt(i+1))   //why doesn't it enter this loop for the last characters (see runner)?
       {
         sb.append(str.charAt(i));
         sb.append(count);
@@ -135,7 +133,6 @@ public class ArraysAndStrings {
      {
        return false;
      }
-
      return true;
   }
 
