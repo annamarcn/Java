@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ArraysAndStringsLeetTest {
   private ArraysAndStringsLeet result = new ArraysAndStringsLeet();
@@ -48,5 +48,25 @@ class ArraysAndStringsLeetTest {
   @Test
   public void onlyUniqueElementsAreCounted() {
     assertEquals(18, result.numberOfUniqueElements(List.of(1, 1, 5, 5, 10, 2, 1, 2)));
+  }
+
+  @Test
+  public void emptyStringIsNotAnagram() {
+    assertFalse(result.isAnagram("", "something"));
+  }
+
+  @Test
+  public void isAnagramRegardlessOfCapitalization() {
+    assertTrue(result.isAnagram("cAr", "rac"));
+  }
+
+  @Test
+  public void repeatingLettersIsAnagramAsLongAsStringsAreEqualLength() {
+    assertTrue(result.isAnagram("aaaaa", "aaaaa"));
+  }
+
+  @Test
+  public void isAnagramHappyCase() {
+    assertTrue(result.isAnagram("anagram", "nagaram"));
   }
 }

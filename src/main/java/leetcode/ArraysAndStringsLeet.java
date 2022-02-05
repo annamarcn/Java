@@ -67,4 +67,25 @@ public class ArraysAndStringsLeet {
 
     return sum;
   }
+
+  public boolean isAnagram(String s, String t) {
+
+    if (s.length() == 0 || t.length() == 0 || s.length() != t.length()) {
+      return false;
+    }
+
+    Map<Character, Integer> map = new HashMap<>();
+
+    for (int i = 0; i < s.length(); i++) {
+      map.put(Character.toLowerCase(s.charAt(i)), i);
+    }
+
+    for (int j = 0; j < t.length(); j++) {
+      if (map.containsKey(Character.toLowerCase(t.charAt(j)))) {
+        map.remove(Character.toLowerCase(t.charAt(j)));
+      }
+    }
+
+    return map.isEmpty();
+  }
 }
