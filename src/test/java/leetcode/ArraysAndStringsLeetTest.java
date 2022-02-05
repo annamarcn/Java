@@ -83,4 +83,24 @@ class ArraysAndStringsLeetTest {
             List.of("anna", "is", "is", "is", "learning", "to", "Code"),
             List.of("Anna", "is", "learning", "to", "code", "code")));
   }
+
+  @Test
+  public void emptyArrayDoesntHaveUniqueNumOfOccurrences() {
+    assertFalse(result.uniqueNumOfOccurrences(List.of()));
+  }
+
+  @Test
+  public void arrayWithOneIntegerHasUniqueNumOfOccurrences() {
+    assertTrue(result.uniqueNumOfOccurrences(List.of(1)));
+  }
+
+  @Test
+  public void trueIfDifferentIntegersAppearDifferentNumbersOfTimes() {
+    assertTrue(result.uniqueNumOfOccurrences(List.of(1, 2, 2, 1, 1, 3)));
+  }
+
+  @Test
+  public void falseIfDifferentIntegersAppearSameNumbersOfTimes() {
+    assertFalse(result.uniqueNumOfOccurrences(List.of(1, 2)));
+  }
 }

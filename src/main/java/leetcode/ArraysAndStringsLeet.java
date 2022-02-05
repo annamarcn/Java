@@ -111,7 +111,6 @@ public class ArraysAndStringsLeet {
       }
     }
 
-    System.out.println(map.toString());
     for (int k = 0; k < words2.size(); k++) {
       if (map.containsKey(words2.get(k).toLowerCase())) {
         sum += map.get(words2.get(k).toLowerCase());
@@ -120,5 +119,31 @@ public class ArraysAndStringsLeet {
     }
 
     return sum;
+  }
+
+  public boolean uniqueNumOfOccurrences(List<Integer> arr) {
+
+    if (arr.isEmpty()) {
+      return false;
+    }
+
+    HashMap<Integer, Integer> map = new HashMap<>();
+    Set<Integer> set = new HashSet<>();
+    int count = 1;
+
+    for (int i = 0; i < arr.size(); i++) {
+      if (map.containsKey(arr.get(i))) {
+        count = map.get(arr.get(i));
+        count++;
+      }
+      map.put(arr.get(i), count);
+    }
+
+    for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+      Integer value = entry.getValue();
+      set.add(entry.getValue());
+    }
+
+    return (set.size() == map.size());
   }
 }
