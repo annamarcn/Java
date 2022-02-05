@@ -43,7 +43,7 @@ public class ArraysAndStringsLeet {
     return numConsStrings;
   }
 
-  public int numberOfUniqueElements(List<Integer> nums) {
+  public int sumOfUniqueElements(List<Integer> nums) {
 
     if (nums.isEmpty()) {
       return 0;

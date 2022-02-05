@@ -42,12 +42,12 @@ class ArraysAndStringsLeetTest {
 
   @Test
   public void emptyArrayHasZeroUniqueElements() {
-    assertEquals(0, result.numberOfUniqueElements(List.of()));
+    assertEquals(0, result.sumOfUniqueElements(List.of()));
   }
 
   @Test
   public void onlyUniqueElementsAreCounted() {
-    assertEquals(18, result.numberOfUniqueElements(List.of(1, 1, 5, 5, 10, 2, 1, 2)));
+    assertEquals(18, result.sumOfUniqueElements(List.of(1, 1, 5, 5, 10, 2, 1, 2)));
   }
 
   @Test
