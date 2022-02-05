@@ -10,11 +10,7 @@ public class ArraysAndStringsLeet {
 
     int numConsStrings = 0;
 
-    if (allowed.length() == 0) {
-      return 0;
-    }
-
-    if (words.isEmpty()) {
+    if (allowed.length() == 0 || words.isEmpty()) {
       return 0;
     }
 
@@ -87,5 +83,42 @@ public class ArraysAndStringsLeet {
     }
 
     return map.isEmpty();
+  }
+
+  public int numWordsWithOneOccurence(List<String> words1, List<String> words2) {
+
+    Map<String, Integer> map = new HashMap<>();
+    int count = 1;
+    int sum = 0;
+
+    for (int i = 0; i < words1.size(); i++) {
+
+      if (map.containsKey(words1.get(i).toLowerCase())) {
+        count = map.get(words1.get(i).toLowerCase());
+        count++;
+      }
+      map.put(words1.get(i).toLowerCase(), count);
+      count = 1;
+    }
+
+    HashMap<String, Integer> tempMap = new HashMap<>(map);
+
+    for (Map.Entry<String, Integer> entry : tempMap.entrySet()) {
+      String key = entry.getKey();
+      Integer value = entry.getValue();
+      if (value > 1) {
+        map.remove(key);
+      }
+    }
+
+    System.out.println(map.toString());
+    for (int k = 0; k < words2.size(); k++) {
+      if (map.containsKey(words2.get(k).toLowerCase())) {
+        sum += map.get(words2.get(k).toLowerCase());
+        map.remove(words2.get(k).toLowerCase());
+      }
+    }
+
+    return sum;
   }
 }

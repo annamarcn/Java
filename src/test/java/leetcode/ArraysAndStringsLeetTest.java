@@ -57,7 +57,7 @@ class ArraysAndStringsLeetTest {
 
   @Test
   public void isAnagramRegardlessOfCapitalization() {
-    assertTrue(result.isAnagram("cAr", "rac"));
+    assertTrue(result.isAnagram("anagram", "nagAram"));
   }
 
   @Test
@@ -65,8 +65,22 @@ class ArraysAndStringsLeetTest {
     assertTrue(result.isAnagram("aaaaa", "aaaaa"));
   }
 
-  @Test
+  @Test // Is this test needed or is it covered already byt the capitalization test above?
   public void isAnagramHappyCase() {
     assertTrue(result.isAnagram("anagram", "nagaram"));
+  }
+
+  @Test
+  public void emptyStringMeansZeroOccurences() {
+    assertEquals(0, result.numWordsWithOneOccurence(List.of(), List.of("abc")));
+  }
+
+  @Test
+  public void occurenceIsCountedOnceIndependentOfCapitalization() {
+    assertEquals(
+        4,
+        result.numWordsWithOneOccurence(
+            List.of("anna", "is", "is", "is", "learning", "to", "Code"),
+            List.of("Anna", "is", "learning", "to", "code", "code")));
   }
 }
