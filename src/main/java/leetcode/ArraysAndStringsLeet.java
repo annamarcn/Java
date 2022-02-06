@@ -4,8 +4,6 @@ import java.util.*;
 
 public class ArraysAndStringsLeet {
 
-  // consistent if all characters in a "words" string appear in the "allowed" string
-
   public int numberOfConsistentStrings(String allowed, List<String> words) {
 
     int numConsStrings = 0;
@@ -49,15 +47,28 @@ public class ArraysAndStringsLeet {
       return 0;
     }
 
-    Set<Integer> setOfNums = new HashSet<>();
+    HashMap<Integer, Integer> map = new HashMap<>();
+    int count = 1;
+
+    for (int i = 0; i < nums.size(); i++) {
+      if (map.containsKey(nums.get(i))) {
+        count = map.get(nums.get(i));
+        count++;
+      }
+      map.put(nums.get(i), count);
+    }
+
+    Set<Integer> set = new HashSet<>();
     int sum = 0;
 
     for (int i = 0; i < nums.size(); i++) {
-      setOfNums.add(nums.get(i));
+      if (map.get(nums.get(i)) == 1) {
+        set.add(nums.get(i));
+      }
     }
-    List<Integer> list = new ArrayList<Integer>(setOfNums);
+    List<Integer> list = new ArrayList<Integer>(set);
 
-    for (int j = 0; j < setOfNums.size(); j++) {
+    for (int j = 0; j < set.size(); j++) {
       sum += list.get(j);
     }
 
@@ -85,7 +96,7 @@ public class ArraysAndStringsLeet {
     return map.isEmpty();
   }
 
-  public int numWordsWithOneOccurence(List<String> words1, List<String> words2) {
+  public int numWordsWithOneOccurrence(List<String> words1, List<String> words2) {
 
     Map<String, Integer> map = new HashMap<>();
     int count = 1;
@@ -145,5 +156,24 @@ public class ArraysAndStringsLeet {
     }
 
     return (set.size() == map.size());
+  }
+
+  public boolean validParentheses(String s) {
+
+    if (s.isEmpty()) {
+      return false;
+    }
+
+    Stack<Character> stack = new Stack<Character>();
+
+    for (int i = 0; i < s.length(); i++) {
+      stack.push(s.charAt(i));
+    }
+
+    if (stack.peek() == ')' || stack.peek() == '}' || stack.peek() == ']') {
+      return false;
+    }
+
+    return true;
   }
 }

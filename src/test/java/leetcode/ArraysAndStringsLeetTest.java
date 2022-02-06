@@ -47,7 +47,12 @@ class ArraysAndStringsLeetTest {
 
   @Test
   public void onlyUniqueElementsAreCounted() {
-    assertEquals(18, result.sumOfUniqueElements(List.of(1, 1, 5, 5, 10, 2, 1, 2)));
+    assertEquals(18, result.sumOfUniqueElements(List.of(10, 4, 10, 9, 5)));
+  }
+
+  @Test
+  public void noRepeatingElementsAreAllowed() {
+    assertEquals(0, result.sumOfUniqueElements(List.of(1, 1, 1, 1)));
   }
 
   @Test
@@ -72,14 +77,14 @@ class ArraysAndStringsLeetTest {
 
   @Test
   public void emptyStringMeansZeroOccurences() {
-    assertEquals(0, result.numWordsWithOneOccurence(List.of(), List.of("abc")));
+    assertEquals(0, result.numWordsWithOneOccurrence(List.of(), List.of("abc")));
   }
 
   @Test
   public void occurenceIsCountedOnceIndependentOfCapitalization() {
     assertEquals(
         4,
-        result.numWordsWithOneOccurence(
+        result.numWordsWithOneOccurrence(
             List.of("anna", "is", "is", "is", "learning", "to", "Code"),
             List.of("Anna", "is", "learning", "to", "code", "code")));
   }
@@ -102,5 +107,20 @@ class ArraysAndStringsLeetTest {
   @Test
   public void falseIfDifferentIntegersAppearSameNumbersOfTimes() {
     assertFalse(result.uniqueNumOfOccurrences(List.of(1, 2)));
+  }
+
+  @Test
+  public void emptyStringIsNotValid() {
+    assertFalse(result.validParentheses(""));
+  }
+
+  @Test
+  public void bracketsClosedBySameTypeOfBracketsIsValid() {
+    assertTrue(result.validParentheses("()[]{}"));
+  }
+
+  @Test
+  public void bracketsClosedInWrongOrderIsInvalid() {
+    assertFalse(result.validParentheses("))[]{}"));
   }
 }
