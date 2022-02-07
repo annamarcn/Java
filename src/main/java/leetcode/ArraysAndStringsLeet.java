@@ -42,37 +42,46 @@ public class ArraysAndStringsLeet {
   }
 
   public int sumOfUniqueElements(List<Integer> nums) {
+    var set = Set.copyOf(nums);
+    var list = new ArrayList<>(set);
 
-    if (nums.isEmpty()) {
-      return 0;
-    }
-
-    HashMap<Integer, Integer> map = new HashMap<>();
-    int count = 1;
-
-    for (int i = 0; i < nums.size(); i++) {
-      if (map.containsKey(nums.get(i))) {
-        count = map.get(nums.get(i));
-        count++;
-      }
-      map.put(nums.get(i), count);
-    }
-
-    Set<Integer> set = new HashSet<>();
     int sum = 0;
-
-    for (int i = 0; i < nums.size(); i++) {
-      if (map.get(nums.get(i)) == 1) {
-        set.add(nums.get(i));
-      }
-    }
-    List<Integer> list = new ArrayList<Integer>(set);
-
-    for (int j = 0; j < set.size(); j++) {
-      sum += list.get(j);
+    for (int num : list) {
+      sum += num;
     }
 
     return sum;
+//
+//    if (nums.isEmpty()) {
+//      return 0;
+//    }
+//
+//    HashMap<Integer, Integer> map = new HashMap<>();
+//    int count = 1;
+//
+//    for (int i = 0; i < nums.size(); i++) {
+//      if (map.containsKey(nums.get(i))) {
+//        count = map.get(nums.get(i));
+//        count++;
+//      }
+//      map.put(nums.get(i), count);
+//    }
+//
+//    Set<Integer> set = new HashSet<>();
+//    int sum = 0;
+//
+//    for (int i = 0; i < nums.size(); i++) {
+//      if (map.get(nums.get(i)) == 1) {
+//        set.add(nums.get(i));
+//      }
+//    }
+//    List<Integer> list = new ArrayList<Integer>(set);
+//
+//    for (int j = 0; j < set.size(); j++) {
+//      sum += list.get(j);
+//    }
+//
+//    return sum;
   }
 
   public boolean isAnagram(String s, String t) {

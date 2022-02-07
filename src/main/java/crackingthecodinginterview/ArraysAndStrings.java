@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import org.jetbrains.annotations.NotNull;
 
 public class ArraysAndStrings {
 
@@ -89,24 +90,19 @@ public class ArraysAndStrings {
   }
 
   public String stringCompression(String str) {
-    int count = 1;
+    str = str.toLowerCase();
+        int count = 0;
     StringBuilder sb = new StringBuilder();
 
-    if (str.length() <= 1) {
-      return str;
-    }
 
-    for(int i = 0; i < str.length() - 1; i++)
+    for(int i = 0; i < str.length(); i++)
     {
-      if(str.charAt(i) != str.charAt(i+1))   //why doesn't it enter this loop for the last characters (see runner)?
+        count += 1;
+      if(i + 1 == str.length() || str.charAt(i) != str.charAt(i+1))   //why doesn't it enter this loop for the last characters (see runner)?
       {
         sb.append(str.charAt(i));
         sb.append(count);
-        count = 1;
-      }
-      else
-      {
-        count++;
+        count = 0;
       }
     }
 

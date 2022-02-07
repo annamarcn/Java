@@ -138,7 +138,7 @@ class ArraysAndStringsTest {
   @Test
   public void compressedStringIsReturnedIfShorterThanOriginalString()
   {
-    assertEquals("aaaaaabccddee", result.stringCompression("a6b1c2d2e2"));
+    assertEquals("a6b1c2d2e2", result.stringCompression("aaaaaabccddee"));
   }
 
   @Test
