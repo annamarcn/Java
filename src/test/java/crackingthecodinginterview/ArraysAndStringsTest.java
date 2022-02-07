@@ -103,7 +103,6 @@ class ArraysAndStringsTest {
     assertTrue(result.isPermutationOfPalindrome("cArerac")); //why does this work out of the box - I haven't done "toLowerCase" in this method?
   }
 
-
   @Test
   public void emptyStringStaysTheSame()
   {
@@ -115,7 +114,6 @@ class ArraysAndStringsTest {
   {
     assertEquals("a3", result.stringCompression("aaa"));
   }
-
 
   @Test
   public void repeatingCharsAreRepresentedByNumbers()

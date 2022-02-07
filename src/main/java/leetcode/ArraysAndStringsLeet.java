@@ -1,17 +1,17 @@
 package leetcode;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.Stack;
 
 public class ArraysAndStringsLeet {
 
   public int numberOfConsistentStrings(String allowed, List<String> words) {
-
     int numConsStrings = 0;
-
-    if (allowed.length() == 0 || words.isEmpty()) {
-      return 0;
-    }
 
     HashMap<Character, Integer> map = new HashMap<>();
 
@@ -43,46 +43,36 @@ public class ArraysAndStringsLeet {
   }
 
   public int sumOfUniqueElements(List<Integer> nums) {
-    var set = Set.copyOf(nums);
-    var list = new ArrayList<>(set);
+    if (nums.isEmpty()) {
+      return 0;
+    }
 
+    HashMap<Integer, Integer> map = new HashMap<>();
+    int count = 1;
+
+    for (int i = 0; i < nums.size(); i++) {
+      if (map.containsKey(nums.get(i))) {
+        count = map.get(nums.get(i));
+        count++;
+      }
+      map.put(nums.get(i), count);
+    }
+
+    Set<Integer> set = new HashSet<>();
     int sum = 0;
-    for (int num : list) {
-      sum += num;
+
+    for (int i = 0; i < nums.size(); i++) {
+      if (map.get(nums.get(i)) == 1) {
+        set.add(nums.get(i));
+      }
+    }
+    List<Integer> list = new ArrayList<Integer>(set);
+
+    for (int j = 0; j < set.size(); j++) {
+      sum += list.get(j);
     }
 
     return sum;
-//
-//    if (nums.isEmpty()) {
-//      return 0;
-//    }
-//
-//    HashMap<Integer, Integer> map = new HashMap<>();
-//    int count = 1;
-//
-//    for (int i = 0; i < nums.size(); i++) {
-//      if (map.containsKey(nums.get(i))) {
-//        count = map.get(nums.get(i));
-//        count++;
-//      }
-//      map.put(nums.get(i), count);
-//    }
-//
-//    Set<Integer> set = new HashSet<>();
-//    int sum = 0;
-//
-//    for (int i = 0; i < nums.size(); i++) {
-//      if (map.get(nums.get(i)) == 1) {
-//        set.add(nums.get(i));
-//      }
-//    }
-//    List<Integer> list = new ArrayList<Integer>(set);
-//
-//    for (int j = 0; j < set.size(); j++) {
-//      sum += list.get(j);
-//    }
-//
-//    return sum;
   }
 
   public boolean isAnagram(String s, String t) {
@@ -107,13 +97,11 @@ public class ArraysAndStringsLeet {
   }
 
   public int numWordsWithOneOccurrence(List<String> words1, List<String> words2) {
-
     Map<String, Integer> map = new HashMap<>();
     int count = 1;
     int sum = 0;
 
     for (int i = 0; i < words1.size(); i++) {
-
       if (map.containsKey(words1.get(i).toLowerCase())) {
         count = map.get(words1.get(i).toLowerCase());
         count++;
@@ -143,7 +131,11 @@ public class ArraysAndStringsLeet {
   }
 
   public boolean uniqueNumOfOccurrences(List<Integer> arr) {
-//    var numbers = Arrays.stream(arr).boxed().collect(Collectors.toList());
+    // int[] arr => ArrayList<Integer>
+    //    var numbers = Arrays.stream(arr)
+    //        .boxed()
+    //        .collect(Collectors.toList());
+
     HashMap<Integer, Integer> occurrences = new HashMap<>();
 
     for (int i = 0; i < arr.size(); i++) {
@@ -154,30 +146,30 @@ public class ArraysAndStringsLeet {
       }
     }
 
-    var set = new HashSet<>();
+    var uniqueNums = new HashSet<>();
     for (Integer count : occurrences.values()) {
-      set.add(count);
+      uniqueNums.add(count);
     }
 
-    return set.size() == occurrences.size();
+    return uniqueNums.size() == occurrences.size();
   }
 
   public boolean validParentheses(String s) {
-
-    if (s.isEmpty()) {
-      return false;
-    }
-
-    Stack<Character> stack = new Stack<Character>();
+    Stack<Character> stack = new Stack<>();
 
     for (int i = 0; i < s.length(); i++) {
-      stack.push(s.charAt(i));
+      if (s.charAt(i) == '(' || s.charAt(i) == '{' || s.charAt(i) == '[') {
+        stack.push(s.charAt(i));
+      } else if (stack.size() > 0
+          && ((stack.peek() == '(' && s.charAt(i) == ')')
+              || (stack.peek() == '[' && s.charAt(i) == ']')
+              || (stack.peek() == '{' && s.charAt(i) == '}'))) {
+        stack.pop();
+      } else {
+        return false;
+      }
     }
 
-    if (stack.peek() == ')' || stack.peek() == '}' || stack.peek() == ']') {
-      return false;
-    }
-
-    return true;
+    return stack.size() == 0;
   }
 }

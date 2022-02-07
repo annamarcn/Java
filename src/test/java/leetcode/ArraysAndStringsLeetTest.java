@@ -111,12 +111,12 @@ class ArraysAndStringsLeetTest {
 
   @Test
   public void emptyStringIsNotValid() {
-    assertFalse(result.validParentheses(""));
+    assertTrue(result.validParentheses(""));
   }
 
   @Test
   public void bracketsClosedBySameTypeOfBracketsIsValid() {
-    assertTrue(result.validParentheses("()[]{}"));
+    assertTrue(result.validParentheses("([])[]{}"));
   }
 
   @Test
