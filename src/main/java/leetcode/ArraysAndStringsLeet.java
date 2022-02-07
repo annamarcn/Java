@@ -1,6 +1,7 @@
 package leetcode;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class ArraysAndStringsLeet {
 
@@ -142,29 +143,23 @@ public class ArraysAndStringsLeet {
   }
 
   public boolean uniqueNumOfOccurrences(List<Integer> arr) {
-
-    if (arr.isEmpty()) {
-      return false;
-    }
-
-    HashMap<Integer, Integer> map = new HashMap<>();
-    Set<Integer> set = new HashSet<>();
-    int count = 1;
+//    var numbers = Arrays.stream(arr).boxed().collect(Collectors.toList());
+    HashMap<Integer, Integer> occurrences = new HashMap<>();
 
     for (int i = 0; i < arr.size(); i++) {
-      if (map.containsKey(arr.get(i))) {
-        count = map.get(arr.get(i));
-        count++;
+      if (occurrences.containsKey(arr.get(i))) {
+        occurrences.put(arr.get(i), occurrences.get(arr.get(i)) + 1);
+      } else {
+        occurrences.put(arr.get(i), 1);
       }
-      map.put(arr.get(i), count);
     }
 
-    for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-      Integer value = entry.getValue();
-      set.add(entry.getValue());
+    var set = new HashSet<>();
+    for (Integer count : occurrences.values()) {
+      set.add(count);
     }
 
-    return (set.size() == map.size());
+    return set.size() == occurrences.size();
   }
 
   public boolean validParentheses(String s) {
