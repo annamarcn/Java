@@ -37,26 +37,24 @@ public class ArraysAndStringsLeet {
 
   public int sumOfUniqueElements(List<Integer> nums) {
     HashMap<Integer, Integer> map = new HashMap<>();
-
-    for (int i = 0; i < nums.size(); i++) {
-      if (map.containsKey(nums.get(i))) {
-        map.put(nums.get(i), map.get(nums.get(i)) + 1);
-      }
-      map.put(nums.get(i), 1);
-    }
-
-    Set<Integer> set = new HashSet<>();
+    HashSet<Integer> set = new HashSet<>();
     int sum = 0;
 
+    set.addAll(nums);
+
     for (int i = 0; i < nums.size(); i++) {
-      if (map.get(nums.get(i)) == 1) {
-        set.add(nums.get(i));
+      if (!map.containsKey(nums.get(i))) {
+        map.put(nums.get(i), 1);
+      } else {
+        map.remove(nums.get(i));
+        set.remove(nums.get(i));
       }
     }
-    List<Integer> list = new ArrayList<Integer>(set);
 
-    for (int j = 0; j < set.size(); j++) {
-      sum += list.get(j);
+    for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+      if (set.contains(entry.getKey())) {
+        sum += entry.getKey();
+      }
     }
 
     return sum;

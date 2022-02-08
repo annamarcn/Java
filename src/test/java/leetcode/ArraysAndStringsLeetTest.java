@@ -47,12 +47,12 @@ class ArraysAndStringsLeetTest {
 
   @Test
   public void onlyUniqueElementsAreCounted() {
-    assertEquals(28, result.sumOfUniqueElements(List.of(10, 4, 10, 9, 5)));
+    assertEquals(18, result.sumOfUniqueElements(List.of(10, 4, 10, 9, 5)));
   }
 
   @Test
   public void noRepeatingElementsAreAllowed() {
-    assertEquals(1, result.sumOfUniqueElements(List.of(1, 1, 1, 1)));
+    assertEquals(0, result.sumOfUniqueElements(List.of(1, 1, 1, 1, 1)));
   }
 
   @Test
