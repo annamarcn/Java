@@ -1,16 +1,17 @@
 package leetcode;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.Stack;
 
 public class ArraysAndStringsLeet {
 
   public int numberOfConsistentStrings(String allowed, List<String> words) {
-
     int numConsStrings = 0;
-
-    if (allowed.length() == 0 || words.isEmpty()) {
-      return 0;
-    }
 
     HashMap<Character, Integer> map = new HashMap<>();
 
@@ -42,7 +43,6 @@ public class ArraysAndStringsLeet {
   }
 
   public int sumOfUniqueElements(List<Integer> nums) {
-
     if (nums.isEmpty()) {
       return 0;
     }
@@ -97,13 +97,11 @@ public class ArraysAndStringsLeet {
   }
 
   public int numWordsWithOneOccurrence(List<String> words1, List<String> words2) {
-
     Map<String, Integer> map = new HashMap<>();
     int count = 1;
     int sum = 0;
 
     for (int i = 0; i < words1.size(); i++) {
-
       if (map.containsKey(words1.get(i).toLowerCase())) {
         count = map.get(words1.get(i).toLowerCase());
         count++;
@@ -133,47 +131,45 @@ public class ArraysAndStringsLeet {
   }
 
   public boolean uniqueNumOfOccurrences(List<Integer> arr) {
+    // int[] arr => ArrayList<Integer>
+    //    var numbers = Arrays.stream(arr)
+    //        .boxed()
+    //        .collect(Collectors.toList());
 
-    if (arr.isEmpty()) {
-      return false;
-    }
-
-    HashMap<Integer, Integer> map = new HashMap<>();
-    Set<Integer> set = new HashSet<>();
-    int count = 1;
+    HashMap<Integer, Integer> occurrences = new HashMap<>();
 
     for (int i = 0; i < arr.size(); i++) {
-      if (map.containsKey(arr.get(i))) {
-        count = map.get(arr.get(i));
-        count++;
+      if (occurrences.containsKey(arr.get(i))) {
+        occurrences.put(arr.get(i), occurrences.get(arr.get(i)) + 1);
+      } else {
+        occurrences.put(arr.get(i), 1);
       }
-      map.put(arr.get(i), count);
     }
 
-    for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-      Integer value = entry.getValue();
-      set.add(entry.getValue());
+    var uniqueNums = new HashSet<>();
+    for (Integer count : occurrences.values()) {
+      uniqueNums.add(count);
     }
 
-    return (set.size() == map.size());
+    return uniqueNums.size() == occurrences.size();
   }
 
   public boolean validParentheses(String s) {
-
-    if (s.isEmpty()) {
-      return false;
-    }
-
-    Stack<Character> stack = new Stack<Character>();
+    Stack<Character> stack = new Stack<>();
 
     for (int i = 0; i < s.length(); i++) {
-      stack.push(s.charAt(i));
+      if (s.charAt(i) == '(' || s.charAt(i) == '{' || s.charAt(i) == '[') {
+        stack.push(s.charAt(i));
+      } else if (stack.size() > 0
+          && ((stack.peek() == '(' && s.charAt(i) == ')')
+              || (stack.peek() == '[' && s.charAt(i) == ']')
+              || (stack.peek() == '{' && s.charAt(i) == '}'))) {
+        stack.pop();
+      } else {
+        return false;
+      }
     }
 
-    if (stack.peek() == ')' || stack.peek() == '}' || stack.peek() == ']') {
-      return false;
-    }
-
-    return true;
+    return stack.size() == 0;
   }
 }

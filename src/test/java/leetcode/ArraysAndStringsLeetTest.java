@@ -47,12 +47,12 @@ class ArraysAndStringsLeetTest {
 
   @Test
   public void onlyUniqueElementsAreCounted() {
-    assertEquals(18, result.sumOfUniqueElements(List.of(10, 4, 10, 9, 5)));
+    assertEquals(28, result.sumOfUniqueElements(List.of(10, 4, 10, 9, 5)));
   }
 
   @Test
   public void noRepeatingElementsAreAllowed() {
-    assertEquals(0, result.sumOfUniqueElements(List.of(1, 1, 1, 1)));
+    assertEquals(1, result.sumOfUniqueElements(List.of(1, 1, 1, 1)));
   }
 
   @Test
@@ -91,7 +91,7 @@ class ArraysAndStringsLeetTest {
 
   @Test
   public void emptyArrayDoesntHaveUniqueNumOfOccurrences() {
-    assertFalse(result.uniqueNumOfOccurrences(List.of()));
+    assertTrue(result.uniqueNumOfOccurrences(List.of()));
   }
 
   @Test
@@ -111,12 +111,12 @@ class ArraysAndStringsLeetTest {
 
   @Test
   public void emptyStringIsNotValid() {
-    assertFalse(result.validParentheses(""));
+    assertTrue(result.validParentheses(""));
   }
 
   @Test
   public void bracketsClosedBySameTypeOfBracketsIsValid() {
-    assertTrue(result.validParentheses("()[]{}"));
+    assertTrue(result.validParentheses("([])[]{}"));
   }
 
   @Test

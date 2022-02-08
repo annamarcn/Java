@@ -41,9 +41,7 @@ public class ArraysAndStrings {
   }
 
   // Method to URLify string, i.e. replaces all spaces in string with '%20'.
-
   public String URLify(String str) {
-
     StringBuilder sb = new StringBuilder(); // whats the difference between this and StringBuffer?
 
     for (int i = 0; i < str.length(); i++) {
@@ -58,22 +56,21 @@ public class ArraysAndStrings {
   }
 
   public boolean isPermutationOfPalindrome(String str) {
-
     // Palindrome has at most 1 odd character, all else are even. Check if there's more than 1 odd
     // chars in map.
     Map<Character, Integer> map = new HashMap<>();
-    int count = 1;
 
     for (int i = 0; i < str.length(); i++) {
-      if (map.containsKey(Character.toLowerCase(str.charAt(i)))) {
-        count = map.get(Character.toLowerCase(str.charAt(i))); // if the map already contains the key, increase count.
-        count++;
+      char lowercaseChar = Character.toLowerCase(str.charAt(i));
+
+      if (map.containsKey(lowercaseChar)) {
+        map.put(lowercaseChar, map.get(lowercaseChar) + 1);
+      } else {
+        map.put(lowercaseChar, 1);
       }
-      map.put(Character.toLowerCase(str.charAt(i)), count); // otherwise add it
     }
 
-    int amountOfOddValues =
-        0; // if there's more than 1 odd value in the map, that means it's not a palindrome.
+    int amountOfOddValues = 0;
 
     for (char c : map.keySet()) {
 
@@ -89,51 +86,37 @@ public class ArraysAndStrings {
   }
 
   public String stringCompression(String str) {
-    int count = 1;
+    str = str.toLowerCase();
+    int count = 0;
     StringBuilder sb = new StringBuilder();
 
-    if (str.length() <= 1) {
-      return str;
-    }
-
-    for(int i = 0; i < str.length() - 1; i++)
-    {
-      if(str.charAt(i) != str.charAt(i+1))   //why doesn't it enter this loop for the last characters (see runner)?
-      {
+    for (int i = 0; i < str.length(); i++) {
+      count += 1;
+      if (i + 1 == str.length() || str.charAt(i) != str.charAt(i + 1)) {
         sb.append(str.charAt(i));
         sb.append(count);
-        count = 1;
-      }
-      else
-      {
-        count++;
+        count = 0;
       }
     }
 
-    if(sb.length() >= str.length())
-    {
+    if (sb.length() >= str.length()) {
       return str;
     }
 
     return sb.toString();
   }
 
-  public boolean stringRotation(String s1, String s2)
-  {
-     StringBuilder sb = new StringBuilder(s1);
+  public boolean stringRotation(String s1, String s2) {
+    StringBuilder sb = new StringBuilder(s1);
+    sb.append(s1);
 
-     sb.append(s1);
+    if (s1.length() == 0 && s2.length() == 0) {
+      return true;
+    }
 
-     if(s1.length() == 0 && s2.length() == 0)
-     {
-       return true;
-     }
-
-     if(sb.indexOf(s2) == -1)
-     {
-       return false;
-     }
-     return true;
+    if (sb.indexOf(s2) == -1) {
+      return false;
+    }
+    return true;
   }
-
-  }
+}

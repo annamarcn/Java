@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 public class ArrayPracticeTest {
 
-  @Test
   public void get() {
     var practice = new ArrayPractice();
     int[] list = new int[0];
