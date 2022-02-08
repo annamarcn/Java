@@ -1,18 +1,11 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.Stack;
+import java.util.*;
 
 public class ArraysAndStringsLeet {
 
   public int numberOfConsistentStrings(String allowed, List<String> words) {
     int numConsStrings = 0;
-
     HashMap<Character, Integer> map = new HashMap<>();
 
     for (int i = 0; i < allowed.length(); i++) {
@@ -43,19 +36,13 @@ public class ArraysAndStringsLeet {
   }
 
   public int sumOfUniqueElements(List<Integer> nums) {
-    if (nums.isEmpty()) {
-      return 0;
-    }
-
     HashMap<Integer, Integer> map = new HashMap<>();
-    int count = 1;
 
     for (int i = 0; i < nums.size(); i++) {
       if (map.containsKey(nums.get(i))) {
-        count = map.get(nums.get(i));
-        count++;
+        map.put(nums.get(i), map.get(nums.get(i)) + 1);
       }
-      map.put(nums.get(i), count);
+      map.put(nums.get(i), 1);
     }
 
     Set<Integer> set = new HashSet<>();
@@ -76,20 +63,21 @@ public class ArraysAndStringsLeet {
   }
 
   public boolean isAnagram(String s, String t) {
-
-    if (s.length() == 0 || t.length() == 0 || s.length() != t.length()) {
+    if (s.length() != t.length()) {
       return false;
     }
 
     Map<Character, Integer> map = new HashMap<>();
 
     for (int i = 0; i < s.length(); i++) {
-      map.put(Character.toLowerCase(s.charAt(i)), i);
+      char lowercaseChar = Character.toLowerCase(s.charAt(i));
+      map.put(lowercaseChar, i);
     }
 
     for (int j = 0; j < t.length(); j++) {
-      if (map.containsKey(Character.toLowerCase(t.charAt(j)))) {
-        map.remove(Character.toLowerCase(t.charAt(j)));
+      char lowercaseChar = Character.toLowerCase(s.charAt(j));
+      if (map.containsKey(lowercaseChar)) {
+        map.remove(lowercaseChar);
       }
     }
 
@@ -98,32 +86,32 @@ public class ArraysAndStringsLeet {
 
   public int numWordsWithOneOccurrence(List<String> words1, List<String> words2) {
     Map<String, Integer> map = new HashMap<>();
-    int count = 1;
     int sum = 0;
 
     for (int i = 0; i < words1.size(); i++) {
-      if (map.containsKey(words1.get(i).toLowerCase())) {
-        count = map.get(words1.get(i).toLowerCase());
-        count++;
+      String lowercaseWord = words1.get(i).toLowerCase();
+
+      if (map.containsKey(lowercaseWord)) {
+        map.put(lowercaseWord, map.get(lowercaseWord) + 1);
+      } else {
+        map.put(lowercaseWord, 1);
       }
-      map.put(words1.get(i).toLowerCase(), count);
-      count = 1;
     }
 
     HashMap<String, Integer> tempMap = new HashMap<>(map);
 
-    for (Map.Entry<String, Integer> entry : tempMap.entrySet()) {
-      String key = entry.getKey();
-      Integer value = entry.getValue();
-      if (value > 1) {
-        map.remove(key);
+    for (var entry : tempMap.entrySet()) {
+      if (entry.getValue() > 1) {
+        map.remove(entry.getKey());
       }
     }
 
     for (int k = 0; k < words2.size(); k++) {
-      if (map.containsKey(words2.get(k).toLowerCase())) {
-        sum += map.get(words2.get(k).toLowerCase());
-        map.remove(words2.get(k).toLowerCase());
+      String lowercaseWord = words2.get(k).toLowerCase();
+
+      if (map.containsKey(lowercaseWord)) {
+        sum += map.get(lowercaseWord);
+        map.remove(lowercaseWord);
       }
     }
 

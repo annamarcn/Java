@@ -7,7 +7,6 @@ import java.util.Set;
 
 public class ArraysAndStrings {
 
-  // Method to decide if a string has all unique characters.
   public boolean hasOnlyUniqueCharacters(String str) {
     Set<Character> setOfChars = new HashSet<>();
 
@@ -18,12 +17,9 @@ public class ArraysAndStrings {
     return str.length() == setOfChars.size();
   }
 
-  // Method to decide if, given two strings, one string is permutation of the other.
-  // alternative solution: sort both strings, are they the same?
   public boolean isPermutation(String s1, String s2) {
     HashMap<Character, Integer> map = new HashMap<>();
 
-    // Test 1: are they the same length?
     if (s1.length() != s2.length()) {
       return false;
     }
@@ -40,9 +36,8 @@ public class ArraysAndStrings {
     return map.isEmpty();
   }
 
-  // Method to URLify string, i.e. replaces all spaces in string with '%20'.
   public String URLify(String str) {
-    StringBuilder sb = new StringBuilder(); // whats the difference between this and StringBuffer?
+    StringBuilder sb = new StringBuilder();
 
     for (int i = 0; i < str.length(); i++) {
       if (str.charAt(i) == ' ') {
@@ -56,8 +51,6 @@ public class ArraysAndStrings {
   }
 
   public boolean isPermutationOfPalindrome(String str) {
-    // Palindrome has at most 1 odd character, all else are even. Check if there's more than 1 odd
-    // chars in map.
     Map<Character, Integer> map = new HashMap<>();
 
     for (int i = 0; i < str.length(); i++) {
@@ -73,7 +66,6 @@ public class ArraysAndStrings {
     int amountOfOddValues = 0;
 
     for (char c : map.keySet()) {
-
       if (map.get(c) % 2 == 1) {
         if (amountOfOddValues == 1) {
           return false;
