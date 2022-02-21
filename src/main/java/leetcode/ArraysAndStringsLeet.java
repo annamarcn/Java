@@ -1,6 +1,10 @@
 package leetcode;
 
 import java.util.*;
+import java.util.Map.Entry;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import org.jetbrains.annotations.NotNull;
 
 public class ArraysAndStringsLeet {
 
@@ -50,13 +54,48 @@ public class ArraysAndStringsLeet {
       }
     }
 
-    for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-      if (set.contains(entry.getKey())) {
-        sum += entry.getKey();
+    for (Integer key : map.keySet()) {
+      if (set.contains(key)) {
+        sum += key;
       }
     }
 
     return sum;
+  }
+
+  public int sumOfUniqueElementsV2(List<Integer> nums) {
+    HashMap<Integer, Integer> countedNums = createFrequencyMap(nums);
+
+    int sum = 0;
+    for (Entry<Integer, Integer> numWithCount : countedNums.entrySet()) {
+      if (numWithCount.getValue() == 1) {
+        sum += numWithCount.getKey();
+      }
+    }
+
+    return sum;
+  }
+
+  public int sumOfUniqueElementsV3(List<Integer> nums) {
+    HashMap<Integer, Integer> countedNums = createFrequencyMap(nums);
+
+    return countedNums.entrySet().stream()
+        .filter(entry -> entry.getValue() == 1)
+        .mapToInt(Entry::getKey)
+        .sum();
+  }
+
+  private HashMap<Integer, Integer> createFrequencyMap(List<Integer> nums) {
+    HashMap<Integer, Integer> countedNums = new HashMap<>();
+
+    for (Integer num : nums) {
+      if (!countedNums.containsKey(num)) {
+        countedNums.put(num, 1);
+      } else {
+        countedNums.put(num, countedNums.get(num) + 1);
+      }
+    }
+    return countedNums;
   }
 
   public boolean isAnagram(String s, String t) {
