@@ -1,6 +1,6 @@
-package designPatterns.builder;
+package designpatterns.builder.carbuilder;
 
-public class carBuilder extends builder {
+public class CarBuilder extends Builder {
   private int numOfSeats;
   private String brandName;
   private String color;

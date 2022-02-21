@@ -1,8 +1,8 @@
-package designPatterns.builder;
+package designpatterns.builder.carbuilder;
 
-public class director {
+public class Director {
 
-  public void makeSportsCar(carBuilder builder) {
+  public void makeSportsCar(CarBuilder builder) {
     builder.setColor("Sporty Red");
     builder.setBrand("Ferrari");
     builder.setFuelType("Gasoline");

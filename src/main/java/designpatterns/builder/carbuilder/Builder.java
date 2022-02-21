@@ -1,6 +1,6 @@
-package designPatterns.builder;
+package designpatterns.builder.carbuilder;
 
-public abstract class builder {
+public abstract class Builder {
 
   public abstract void setSeats(int numOfSeats);
 

@@ -1,4 +1,4 @@
-package designPatterns.builder;
+package designpatterns.builder.carbuilder;
 
 public class Car {
 
