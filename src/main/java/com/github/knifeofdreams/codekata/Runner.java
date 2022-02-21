@@ -1,28 +1,26 @@
 package com.github.knifeofdreams.codekata;
 
-import crackingthecodinginterview.ArraysAndStrings;
+import designpatterns.builder.pizzabuilder.HawaiianPizzaBuilder;
+import designpatterns.builder.pizzabuilder.Pizza;
+import designpatterns.builder.pizzabuilder.PizzaBuilder;
+import designpatterns.builder.pizzabuilder.Waiter;
 
 public class Runner {
 
   public static void main(String[] args) {
-    var practice = new ArraysAndStrings();
+    Waiter waiter = new Waiter();
+    PizzaBuilder hawaiianPizzabuilder = new HawaiianPizzaBuilder();
 
-    /*
-     print("select some designpattern to test")
-     int result = GET_USER_INPUT
+    waiter.setPizzaBuilder( hawaiianPizzabuilder );
+    waiter.constructPizza();
 
-     switch(GET_USER_INPUT)
+    Pizza builtPizza = waiter.getPizza();
 
-     case BUILDER:
-         builderPatternRunner();
-     case FACTORY:
-         factoryPatternRunner();
-    */
+    Pizza manualPizza = new Pizza();
+    manualPizza.setDough("sour");
+    manualPizza.setSauce("mild");
+    manualPizza.setTopping("ham+pineapple");
 
-    System.out.println(practice.hasOnlyUniqueCharacters("Abcdefg"));
-    System.out.println(practice.isPermutation("abcdefg", "gfehcab"));
-    System.out.println(practice.URLify("abc def gh"));
-    System.out.println(practice.isPermutationOfPalindrome("anna"));
-    System.out.println(practice.stringCompression("aaaaaaabbbbbcccccddddd"));
+    System.out.println(builtPizza);
   }
 }
