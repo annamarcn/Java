@@ -37,10 +37,9 @@ public class ArraysAndStringsLeet {
 
   public int sumOfUniqueElements(List<Integer> nums) {
     HashMap<Integer, Integer> map = new HashMap<>();
-    HashSet<Integer> set = new HashSet<>();
     int sum = 0;
 
-    set.addAll(nums);
+    HashSet<Integer> set = new HashSet<>(nums);
 
     for (int i = 0; i < nums.size(); i++) {
       if (!map.containsKey(nums.get(i))) {
@@ -82,7 +81,8 @@ public class ArraysAndStringsLeet {
     return map.isEmpty();
   }
 
-  public int numWordsWithOneOccurrence(List<String> words1, List<String> words2) {
+  public int countWords(List<String> words1, List<String> words2) {
+
     Map<String, Integer> map = new HashMap<>();
     int sum = 0;
 
@@ -107,7 +107,7 @@ public class ArraysAndStringsLeet {
     for (int k = 0; k < words2.size(); k++) {
       String lowercaseWord = words2.get(k).toLowerCase();
 
-      if (map.containsKey(lowercaseWord)) {
+      if (map.containsKey(lowercaseWord) && map.get(lowercaseWord) == 1) {
         sum += map.get(lowercaseWord);
         map.remove(lowercaseWord);
       }
@@ -118,9 +118,7 @@ public class ArraysAndStringsLeet {
 
   public boolean uniqueNumOfOccurrences(List<Integer> arr) {
     // int[] arr => ArrayList<Integer>
-    //    var numbers = Arrays.stream(arr)
-    //        .boxed()
-    //        .collect(Collectors.toList());
+    //    var numbers = Arrays.stream(arr).boxed().collect(Collectors.toList());
 
     HashMap<Integer, Integer> occurrences = new HashMap<>();
 

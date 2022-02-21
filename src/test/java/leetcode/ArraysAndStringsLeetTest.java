@@ -77,16 +77,21 @@ class ArraysAndStringsLeetTest {
 
   @Test
   public void emptyStringMeansZeroOccurences() {
-    assertEquals(0, result.numWordsWithOneOccurrence(List.of(), List.of("abc")));
+    assertEquals(0, result.countWords(List.of(), List.of("abc")));
   }
 
   @Test
   public void occurenceIsCountedOnceIndependentOfCapitalization() {
     assertEquals(
         4,
-        result.numWordsWithOneOccurrence(
+        result.countWords(
             List.of("anna", "is", "is", "is", "learning", "to", "Code"),
             List.of("Anna", "is", "learning", "to", "code", "code")));
+  }
+
+  @Test
+  public void repeatingOccurrencesNotCounted() {
+    assertEquals(1, result.countWords(List.of("a", "ab"), List.of("a", "a", "a", "ab")));
   }
 
   @Test
