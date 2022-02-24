@@ -13,14 +13,25 @@ public class Director {
     return builder.buildCar();
   }
 
-  public Car makeSimonsCar(CarBuilder builder) {
-    builder.setColor("FAKE");
-    builder.setBrand("Ferrari");
+  public Car makeTruck(CarBuilder builder) {
+    builder.setColor("White");
+    builder.setBrand("Volvo");
     builder.setFuelType("Gasoline");
-    builder.setHorsepower(450);
+    builder.setHorsepower(770);
     builder.setEngine("BMW");
-    builder.setGearboxType("Manual");
+    builder.setGearboxType("Automatic");
     builder.setSeats(2);
+    return builder.buildCar();
+  }
+
+  public Car makeFamilyCar(CarBuilder builder) {
+    builder.setColor("Magenta");
+    builder.setBrand("Volkswagen");
+    builder.setFuelType("95");
+    builder.setHorsepower(190);
+    builder.setEngine("Volkswagen");
+    builder.setGearboxType("Automatic");
+    builder.setSeats(5);
     return builder.buildCar();
   }
 }
