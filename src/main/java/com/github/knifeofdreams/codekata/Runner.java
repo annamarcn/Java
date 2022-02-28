@@ -3,6 +3,7 @@ package com.github.knifeofdreams.codekata;
 import designpatterns.builder.carbuilder.Car;
 import designpatterns.builder.carbuilder.CarBuilder;
 import designpatterns.builder.carbuilder.Director;
+import designpatterns.builder.carbuilderv2.Cars;
 import designpatterns.builder.pizzabuilder.HawaiianPizzaBuilder;
 import designpatterns.builder.pizzabuilder.Pizza;
 import designpatterns.builder.pizzabuilder.PizzaBuilder;
@@ -30,5 +31,20 @@ public class Runner {
     CarBuilder sportsCar = new CarBuilder();
     Car car = director.makeSportsCar(sportsCar);
     System.out.println(car);
+
+    // new carversion2
+
+    Cars cars =
+        Cars.Builder.builder()
+            .setBrandName("Ferrari")
+            .setColor("Red")
+            .setNumberOfSeats(2)
+            .setFuel("Diesel")
+            .setGearbox("Manual")
+            .setHorsepower(450)
+            .setTypeOfEngine("BMW")
+            .build();
+
+    System.out.println(cars.toString());
   }
 }
