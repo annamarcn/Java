@@ -1,5 +1,6 @@
 package leetcode;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 class LinkedListsTest {
@@ -7,6 +8,7 @@ class LinkedListsTest {
 
   @Test
   public void addingNodeIncreasesListWithAddedNode() {
-    assertEquals(linkedList.head.data, linkedList.add(3).toString());
+    linkedList.add(3);
+    assertEquals(linkedList.toString(), "3 -> ");
   }
 }
