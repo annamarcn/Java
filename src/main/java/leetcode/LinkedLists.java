@@ -1,6 +1,5 @@
 package leetcode;
 
-
 public class LinkedLists {
   Node head;
 
@@ -18,14 +17,14 @@ public class LinkedLists {
   }
 
   public Node delete(Node node) {
-    Node currentNode = this.head;
+    Node current = this.head;
 
     if (this.head.data == node.data) {
       this.head.next = this.head;
       return this.head;
 
     } else {
-      currentNode.next = currentNode.next.next;
+      current.next = current.next.next;
     }
     return this.head;
   }
