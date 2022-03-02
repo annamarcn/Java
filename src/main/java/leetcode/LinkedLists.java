@@ -5,28 +5,55 @@ public class LinkedLists {
 
   public void add(int data) {
     // if empty
-    if (this.head == null) {
-      this.head = new Node(data);
+    if (head == null) {
+      head = new Node(data);
     }
     // if not empty, add to the start of the list
     else {
       Node newNode = new Node(data);
-      newNode.next = this.head;
-      this.head = newNode;
+      newNode.next = head;
+      head = newNode;
     }
   }
 
-  public Node delete(Node node) {
-    Node current = this.head;
+  public void delete(Node node) {
+    node.data = node.next.data;
+    node.next = node.next.next;
+  }
 
-    if (this.head.data == node.data) {
-      this.head.next = this.head;
-      return this.head;
+  public Node middleNode(Node node) {
+    int count = 0;
+    int middle;
+    Node current = node;
 
-    } else {
-      current.next = current.next.next;
+    while (current != null) {
+      count++;
+      current = current.next;
     }
-    return this.head;
+
+    if (count % 2 == 0) {
+      middle = (count / 2) + 1;
+    } else {
+      middle = (int) ((count * 0.5) + 0.5);
+    }
+
+    for (int i = 1; i <= middle; i++) {
+      node = node.next;
+    }
+
+    return node;
+  }
+
+  @Override
+  public String toString() {
+    var linkedList = new StringBuilder();
+    var node = head;
+
+    while (node != null) {
+      linkedList.append(node.data + " -> ");
+      node = node.next;
+    }
+    return linkedList.toString();
   }
 }
 
