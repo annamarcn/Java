@@ -55,6 +55,18 @@ public class LinkedLists {
     }
     return linkedList.toString();
   }
+
+  @Override
+  public String toString() {
+    var linkedList = new StringBuilder();
+    var node = head;
+
+    while (node != null) {
+      linkedList.append(node.data + " -> ");
+      node = node.next;
+    }
+    return linkedList.toString();
+  }
 }
 
 class Node {
