@@ -16,9 +16,17 @@ public class LinkedLists {
     }
   }
 
-  public void delete(Node node) {
-    node.data = node.next.data;
-    node.next = node.next.next;
+  public void delete(int data) {
+    Node node = head;
+    int index = 0;
+    while (node != null) {
+      if (node.data == data) {
+        node.data = node.next.data;
+        node.next = node.next.next;
+      }
+      index++;
+      node = node.next;
+    }
   }
 
   public Node middleNode(Node node) {
@@ -37,8 +45,11 @@ public class LinkedLists {
       middle = (int) ((count * 0.5) + 0.5);
     }
 
-    for (int i = 1; i <= middle; i++) {
+    int index = 0;
+
+    while (index < middle - 1) {
       node = node.next;
+      index++;
     }
 
     return node;

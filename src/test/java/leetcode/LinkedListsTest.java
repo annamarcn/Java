@@ -52,6 +52,15 @@ class LinkedListsTest {
     linkedList.add(3);
     linkedList.add(2);
     linkedList.add(1);
-    // linkedList.delete();
+    linkedList.delete(2);
+
+    int index = 0;
+    Node current = linkedList.head;
+
+    while (current != null) {
+      assertEquals(current.data, expected.get(index));
+      index++;
+      current = current.next;
+    }
   }
 }
